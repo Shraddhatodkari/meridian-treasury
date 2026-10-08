@@ -1,0 +1,5 @@
+# Code owners for governance-sensitive paths (policy, governance code, policy documents).
+# Uncomment and replace <owner> with your GitHub username or team (e.g. @my-org/group-treasury) after pushing.
+# /config/treasury_policy.yaml           <owner>
+# /src/meridian/governance/              <owner>
+# /src/meridian/data/documents/          <owner>

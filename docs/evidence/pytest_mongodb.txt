@@ -1,0 +1,15 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.16, pytest-9.1.1, pluggy-1.6.0 -- /home/claude/venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/claude/meridian
+configfile: pyproject.toml
+plugins: langsmith-0.14.4, asyncio-1.4.0, reverse-1.9.0, anyio-4.15.1
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 4 items
+
+tests/integration/test_mongodb_production_path.py::test_ingested_ledgers_round_trip PASSED [ 25%]
+tests/integration/test_mongodb_production_path.py::test_model_registry_persists_artifact_in_gridfs PASSED [ 50%]
+tests/integration/test_mongodb_production_path.py::test_audit_chain_is_safe_with_concurrent_replicas PASSED [ 75%]
+tests/integration/test_mongodb_production_path.py::test_users_and_runs_persist PASSED [100%]
+
+============================== 4 passed in 12.29s ==============================

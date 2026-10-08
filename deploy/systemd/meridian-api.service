@@ -1,0 +1,22 @@
+# Bare-metal / VM deployment without containers:
+#   python3.12 -m venv /opt/meridian/.venv && /opt/meridian/.venv/bin/pip install -e "/opt/meridian[nlp]"
+#   sudo cp deploy/systemd/*.service /etc/systemd/system/ && sudo systemctl enable --now meridian-api meridian-mcp
+#   /etc/meridian/meridian.env: MERIDIAN_MODE=production, MERIDIAN_MONGODB_URI, MERIDIAN_JWT_SECRET, MERIDIAN_LLM_PROVIDER, ...
+# Put nginx (TLS, SSO) in front; bind services to 127.0.0.1.
+[Unit]
+Description=Meridian Liquidity & Working-Capital Intelligence API + Treasury Console
+After=network-online.target
+
+[Service]
+User=meridian
+WorkingDirectory=/opt/meridian
+EnvironmentFile=/etc/meridian/meridian.env
+ExecStart=/opt/meridian/.venv/bin/uvicorn meridian.api.main:app --host 127.0.0.1 --port 8000 --workers 2
+Restart=on-failure
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/opt/meridian/artifacts /opt/meridian/reports
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

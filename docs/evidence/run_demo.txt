@@ -1,0 +1,54 @@
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+1. The problem — Orion Industrial Group (fictional), as of 2026-10-06
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  $225.2M cash across 17 entities, 37 bank accounts and 14 currencies; $50.7M trapped by capital
+    controls; DSO 70.4 days with $182.0M overdue; revolver $220M drawn at 6.39%.
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+2. Predicting when customers really pay (ML)
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Payment-delay MAE: model 3.42 days vs customer-average 5.47 vs ERP 'pays on due date' 21.38.
+  13-week collections back-test error (WAPE): 9.1% vs ERP assumption 69.7%.
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+3. Daily liquidity run — 7 agents over MCP tools
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Liquidity is $605.2M against a $250.0M covenant, with P10 headroom never below $355.2M over 13
+    weeks (Base case). Cash is fragmented across 17 entities and 37 accounts while $49.0M of
+    revolver debt can be repaid. The recommended plan yields $3.16M a year from cash concentration
+    plus $129K of supplier discounts.
+  ▶ CFO: approve 4 action(s) incl. revolver repayment of $49.0M (TP-2.1, RCF-8.1)
+  ▶ Treasurer: approve 21 action(s) up to the TP-2.1 limits
+  Grounding: 24 dollar figures checked against tool output → all grounded
+  Agent trace: planner_agent → data_intelligence_agent → forecast_agent → liquidity_agent → risk_agent → working_capital_agent → scenario_agent → optimization_agent → decision_agent → policy_agent → governance_agent → briefing_agent → guardrail
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+4. Governed approvals (TP-2.1 approval matrix, TP-2.2 segregation of duties)
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  A014: repay $49M of the revolver — needs cfo
+  ✗ Treasurer blocked: Requires cfo authority (TP-2.1): treasurer cannot approve REVOLVER_REPAY of
+    $49,000,000
+  ✓ CFO approved → ISO 20022 pain.001 draft generated (DRAFT — NOT TRANSMITTED. Release requires
+    upload to the bank portal / TMS by an authorised signatory under bank mandate (dual control).)
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+5. CFO asks a stress question in plain English
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Q: What if customers pay 30% slower and rates rise 50 bps?
+  Planner → collection_delay_pct=0.3, rate_shock_bps=50.0
+  Min P10 covenant headroom: $207.3M (base $355.2M)
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+6. Policy question answered from the documents (hybrid RAG with clause citations)
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  • RCF-8.1 — Voluntary prepayment: The Borrower may prepay any loan on three business days' prior
+    notice, in a minimum amount of USD 5,000,000 and in integral multiples of USD 1,000,000, without
+    premium or penalty.
+  • DP-3.1 — Fixed and floating mix: Between 40% and 75% of gross debt should bear fixed rates.
+    Outside this band Treasury must propose a remediation (swap, new issue or prepayment of floating
+    debt) to the CFO.
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+7. Audit ledger: valid=True · 81 hash-chained records
+────────────────────────────────────────────────────────────────────────────────────────────────────

@@ -1,0 +1,69 @@
+OK   kpis
+OK   forecast
+OK   forecast.entities
+OK   entities
+OK   accounts
+OK   fc entity
+OK   scenarios
+OK   scen.comp
+OK   collections
+OK   earlypay
+OK   ep.sel
+OK   ep.skip
+OK   backtest
+OK   peers
+OK   peers.p
+OK   insight trapped_cash
+OK    ev trapped_cash
+OK   insight liquidity_risk
+OK    ev liquidity_risk
+OK   insight releasable_liquidity
+OK    ev releasable_liquidity
+OK   insight repay_vs_preserve
+OK    ev repay_vs_preserve
+OK   insight shocks
+OK    ev shocks
+OK   insight wc_actions
+OK    ev wc_actions
+OK   insight collections
+OK    ev collections
+OK   insight cfo_approvals
+OK    ev cfo_approvals
+OK   shocks.detail
+OK   trapped.fig
+OK   coll.fig
+OK   graph
+OK   graph.n
+OK   graph.e
+OK   hazard
+graph counts {'Entity': 17, 'Currency': 14, 'Country': 16, 'BankAccount': 37, 'Bank': 3, 'PolicyClause': 13, 'Facility': 1, 'Customer': 40, 'Supplier': 21, 'Contract': 1, 'RiskEvent': 3}
+OK   graph node
+OK   policy search
+OK   gov.policy
+OK   matrix
+quarantine 1 dict_keys(['chunk_id', 'clause_id', 'clause_title', 'document', 'source', 'text', 'doc_version', 'effective', 'owner', 'doc_sha256', 'quarantined', 'embedder', 'score'])
+OK   prov
+ingestions [{'ingestion_id': 'DRYRUN-ING-5a59788f86', 'source_dir': '/tmp/tmpd065xwh2', 'classification': 'SYNTHETIC', 'tenant': 'Orion Industrial Group (synthetic demo company)', 'as_of': '2026-10-06', 'loaded': False, 'counts': {'entities': 17, 'bank_accounts': 37, 'customers': 150, 'suppliers': 80, 'ar_invoices': 15180, 'ar_open': 1508, 'ap_open': 707, 'ap_paid_history': 3894, 'recurring_flows': 65, 'statements': 37, 'bank_transactions': 2309, 'debt_facilities': 3, 'covenants': 3, 'banks': 4}, 'errors': 0, 'warnings': 0, 'checks': [], 'sources': [{'source_id': 'company.entities', 'name': 'Legal entity master', 'classification': 'SYNTHETIC', 'system': 'Meridian simulator (synthetic sample)', 'uri': 'file://entities.csv', 'retrieved_at': '2026-10-07T17:16:16Z', 'as_of': '2026-10-06', 'record_count': 17, 'checksum_sha256': 'cd45dcbb57764b9f87da55ad543824495e377cb6ff091a539c96920ab6644025', 'validation': 'PASSED', 'issues': [], 'freshness_sla_hours': None, 'notes': None}, {'source_id': 'company.bank_balances', 'name': 'Bank closing balances (camt.053)', 'classification': 'SYNTHETIC', 'system': 'Bank statements via SWIFT / EBICS / host-to-host', 'uri': 'file://bank_statements', 'retrieved_at': '2026-10-07T17:16:16Z', 'as_of': '2026-10-05', 'record_count': 37, 'checksum_sha256': '05828ed57ebdeefdbf2d126f6db402eaa9dd6d7bd157ef5c2411a30f828058ec', 'validation': 'PASSED', 'issues': [], 'freshness_sla_hours': 48.0, 'notes': None}, {'source_id': 'company.receivables', 'name': 'Accounts receivable (open + settled history)', 'classification': 'SYNTHETIC', 'system': 'Meridian simulator (synthetic sample)', 'uri': 'file://ar_invoices.csv', 'retrieved_at': '2026-10-07T17:16:16Z', 'as_of': '2026-10-06', 'record_count': 15180, 'checksum_sha256': 'f20ab7ede3f9e204c3ed920c0fd44e2b5552b112af2e2188405a1ca178008d7a', 'validation': 'PASSED', 'issues': [], 'freshness_sla_hours': 48.0, 'notes': None}, {'source_id': 'company.payables', 'name': 'Accounts payable (open book + payment history)', 'classification': 'SYNTHETIC', 'system': 'Meridian simulator (synthetic sample)', 'uri': 'file://ap_invoices.csv', 'retrieved_at': '2026-10-07T17:16:16Z', 'as_of': '2026-10-06', 'record_count': 4601, 'checksum_sha256': 'e26156b132f55ff63d8e1c24672e91d2dc845192fddd68a89e05a813e1527e86', 'validation': 'PASSED', 'issues': [], 'freshness_sla_hours': 48.0, 'notes': None}, {'source_id': 'company.counterparties', 'name': 'Customer master', 'classification': 'SYNTHETIC', 'system': 'Meridian simulator (synthetic sample)', 'uri': 'file://customers.csv', 'retrieved_at': '2026-10-07T17:16:16Z', 'as_of': '2026-10-06', 'record_count': 150, 'checksum_sha256': '2996ae0e407face9c353781ad76ac1c1831ceb8aab84232732563bf955931654', 'validation': 'PASSED', 'issues': [], 'freshness_sla_hours': None, 'notes': None}, {'source_id': 'company.recurring', 'name': 'Recurring flow schedules', 'classification': 'SYNTHETIC', 'system': 'Meridian simulator (synthetic sample)', 'uri': 'file://recurring_flows.csv', 'retrieved_at': '2026-10-07T17:16:16Z', 'as_of': '2026-10-06', 'record_count': 65, 'checksum_sha256': '577753676ab3fa7aa0f5d0dde71b22a28266c2d2db3449afc66ad6b9333c3bff', 'validation': 'PASSED', 'issues': [], 'freshness_sla_hours': None, 'notes': None}, {'source_id': 'company.bank_transactions', 'name': 'Bank-statement entries (camt.053 Ntry / BAI2 16)', 'classification': 'SYNTHETIC', 'system': 'Bank statements via SWIFT / EBICS / host-to-host', 'uri': 'file://bank_statements', 'retrieved_at': '2026-10-07T17:16:16Z', 'as_of': '2026-10-05', 'record_count': 2309, 'checksum_sha256': '05828ed57ebdeefdbf2d126f6db402eaa9dd6d7bd157ef5c2411a30f828058ec', 'validation': 'PASSED', 'issues': [], 'freshness_sla_hours': 48.0, 'notes': None}, {'source_id': 'company.debt_facilities', 'name': 'Debt facilities', 'classification': 'SYNTHETIC', 'system': 'Treasury management system / facility agreements', 'uri': 'file://debt_facilities.csv', 'retrieved_at': '2026-10-07T17:16:16Z', 'as_of': '2026-10-06', 'record_count': 3, 'checksum_sha256': '561083ff46150f335c226a3a87b7e067569a73d85bbaad855b5e96341e75e972', 'validation': 'PASSED', 'issues': [], 'freshness_sla_hours': None, 'notes': None}, {'source_id': 'company.covenants', 'name': 'Financial covenants', 'classification': 'SYNTHETIC', 'system': 'Facility agreements (compliance certificate)', 'uri': 'file://covenants.csv', 'retrieved_at': '2026-10-07T17:16:16Z', 'as_of': '2026-10-06', 'record_count': 3, 'checksum_sha256': '958ffadebc83127690f4fdc5912b3b58628cc1301236e073241342135a6ee5c5', 'validation': 'PASSED', 'issues': [], 'freshness_sla_hours': None, 'notes': None}, {'source_id': 'company.facility', 'name': 'Committed facilities & covenants', 'classification': 'SYNTHETIC', 'system': 'Facility agreement (treasury)', 'uri': 'file://facility.json', 'retrieved_at': '2026-10-07T17:16:16Z', 'as_of': '2026-10-06', 'record_count': 1, 'checksum_sha256': 'd72165314a1cc2219807f0a24f79b9d0240127813173ecc69446a3f4d01809e5', 'validation': 'PASSED', 'issues': [], 'freshness_sla_hours': None, 'notes': None}], 'created_at': '2026-10-07T17:16:16+00:00', 'mode': 'validation dry-run of the SYNTHETIC evaluation dataset'}]
+OK   readiness
+OK   checks
+OK   agents
+OK   modelcard
+repro keys ['platform_version', 'mode', 'classification', 'tenant', 'as_of', 'seed', 'monte_carlo_paths', 'forecast_weeks', 'policy_version', 'policy_sha256', 'model_id', 'model_version', 'llm', 'embedder', 'market_data', 'scenario', 'sources']
+OK   ready
+OK   me
+run 200
+OK   run
+OK   finding
+OK   briefing
+OK   action
+OK   repro
+OK   trace
+OK   runs list
+OK   queue
+Where is cash trapped? -> INSIGHT ANSWERED True False
+Who approves a revolver prepayment? -> POLICY_QUESTION ANSWERED False True
+OK    answer
+OK    cit
+What if customers pay 30% slower and rates rise 50 bps? -> SCENARIO AWAITING_APPROVALS False False
+OK   audit
+OK   verify

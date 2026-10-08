@@ -1,0 +1,50 @@
+flowchart TB
+  subgraph USERS["People — RBAC + segregation of duties (server-side)"]
+    direction LR
+    CFO["CFO"] ~~~ TRE["Group Treasurer"] ~~~ ANA["Finance Analyst"] ~~~ WCM["Working Capital Mgr"] ~~~ AUDR["Internal Audit"] ~~~ ADM["Finance Admin"]
+  end
+  USERS --> CON["Meridian Enterprise Console — 14 workspaces<br/>Command Center · Liquidity · Network · Working Capital · Forecast · Scenario · AI Decision<br/>Recommendations · Approvals · Policy · Lineage · Audit · Operations · Admin"]
+  CON --> API["FastAPI · JWT (jti revocation) · RBAC · CSP/HSTS · input validation · ops metrics<br/>EVALUATION / PRODUCTION mode gate"]
+
+  subgraph DATA["Data platform — Raw → Validated → Normalized → Analytical → Decision"]
+    direction TB
+    ERP["ERP / GL / AR / AP extract (CSV spec)<br/>debt facilities · covenants · banks"] --> DQ{{"Data-quality gate<br/>schema · IBAN mod-97 · referential · business rules<br/>atomic load or reject"}}
+    BANK["Bank statements<br/>ISO 20022 camt.053 · BAI2"] --> DQ
+    DQ --> NORM["Normalized domain model<br/>Organization · Entity · BU · Bank · Account · Customer · Supplier<br/>Invoice · Payment · Facility · Covenant · Transactions"]
+    MKT["REAL public data (dated snapshot / live)<br/>ECB FX + 90d history · NY Fed SOFR/EFFR · UST curve · ECB €STR<br/>FRED BBB OAS · SEC EDGAR XBRL · GDACS"] --> NORM
+    SYN["SYNTHETIC evaluation company<br/>(evaluation mode only — always labelled)"] -.-> DQ
+    NORM --> CAT["Catalog (62 datasets) + metric registry (23 metrics)<br/>source · as-of · transform · formula · basis"]
+  end
+
+  API --> ORCH
+  subgraph ORCH["LangGraph orchestration — 11 bounded agents + guardrail"]
+    direction LR
+    PL["Planner"] --> DI["Data Intelligence"] --> FA["Forecast"] --> LQ["Liquidity"] --> RK["Risk"] --> WC["Working Capital"] --> SC["Scenario"] --> OP["Optimization"] --> DE["Decision"] --> PO["Policy / RAG"] --> GV["Governance"] --> BR["Executive Briefing"] --> GC{{"Guardrail<br/>numeric grounding · citations"}}
+  end
+  ORCH -->|"per-agent tool allowlist"| MCP[("Read-only MCP server<br/>no payment tool")]
+  MCP --> ENG
+  subgraph ENG["Deterministic financial engine"]
+    direction LR
+    ML["AR delay model<br/>quantile GBM + conformal"] --> FC["13-week Monte Carlo<br/>P10/P50/P90 · back-test"]
+    FC --> OPT["Liquidity LP (HiGHS)<br/>binding constraints · shadow prices"]
+    TRS["Treasury analytics<br/>waterfall · bridges · covenants · debt · FX VaR · DSO drivers · AP"]
+    GR["Financial graph (≈18k nodes)<br/>traversal + impact queries"]
+    RAG["Hybrid RAG · versioned docs<br/>relevance floor · quarantine · citation check"]
+  end
+  CAT --> ENG
+  ORCH <-->|"DLP-masked prompts"| LLM(["Claude (API / Vertex / Bedrock)<br/>deterministic offline reasoner in evaluation & CI"])
+
+  DE --> REC["Recommendations (first-class objects)<br/>decision · objective · constraints · impact+basis · evidence · policy"]
+  REC --> APR["Detect → Analyze → Recommend → Review → Approve → Prepare → Execute<br/>authority TP-2.1 · SoD TP-2.2 · scopes · dual control TP-7.2"]
+  APR --> PAIN["ISO 20022 pain.001<br/>DRAFT → APPROVED → READY · transmission channel: none"]
+  ORCH & APR & API --> AUD[("SHA-256 hash-chained audit ledger<br/>incl. every authorization denial")]
+  ENG & AUD & REC --> DB[("MongoDB — runs · recommendations · approvals · audit · users · models (GridFS)")]
+
+  classDef gov fill:#fff4e5,stroke:#e8a33d,color:#222
+  classDef ai fill:#eaf2ff,stroke:#2a78d6,color:#222
+  classDef data fill:#eef8ee,stroke:#1baf7a,color:#222
+  classDef syn fill:#fff8e1,stroke:#eda100,color:#222,stroke-dasharray: 4 3
+  class DQ,GC,APR,AUD,PAIN gov
+  class PL,DI,FA,LQ,RK,WC,SC,OP,DE,PO,GV,BR,LLM ai
+  class ERP,BANK,MKT,NORM,CAT data
+  class SYN syn

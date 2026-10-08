@@ -1,0 +1,31 @@
+# Render Blueprint — native Python runtime (no Docker). Push repo, then "New → Blueprint" in Render.
+services:
+  - type: web
+    name: meridian-api
+    runtime: python
+    plan: starter
+    buildCommand: pip install -e ".[nlp]"
+    startCommand: uvicorn meridian.api.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:                             # the Treasury Console is served by this service at "/"
+      - key: PYTHON_VERSION
+        value: "3.12.7"
+      - key: MERIDIAN_MODE
+        value: production                # refuses to start on SYNTHETIC data, mock LLM or missing MongoDB
+      - key: MERIDIAN_JWT_SECRET         # 32+ byte random secret (secret)
+        sync: false
+      - key: MERIDIAN_MARKET_DATA
+        value: live
+      - key: MERIDIAN_SEC_USER_AGENT     # "Org Name contact@org.com" per SEC fair-access policy
+        sync: false
+      - key: MERIDIAN_MONGODB_URI        # MongoDB Atlas connection string (secret)
+        sync: false
+      - key: MERIDIAN_LLM_PROVIDER
+        value: anthropic
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: MERIDIAN_EMBEDDER
+        value: transformer
+      - key: MERIDIAN_API_KEYS
+        sync: false
+# Load client data with `meridian ingest --dir <package>` and create users with `meridian users create`.

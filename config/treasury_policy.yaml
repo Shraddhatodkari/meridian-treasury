@@ -1,0 +1,121 @@
+# Meridian governance policy-as-code. Mirrors the Group Treasury Policy (TP-*) and the RCF covenants.
+# Changes require Treasury + Internal Control review (see .github/CODEOWNERS).
+version: "2026.10-t3"
+owner: "Group Treasury / Internal Control"
+
+approval_matrix:            # first matching rule wins; amounts in USD
+  - action: REVOLVER_REPAY
+    approver_role: cfo
+    policy_ref: TP-2.1
+  - action: REVOLVER_DRAW
+    approver_role: cfo
+    policy_ref: TP-2.1
+  - action: INTERCOMPANY_TRANSFER
+    when: capital_controls
+    approver_role: cfo
+    policy_ref: TP-2.1
+  - action: INTERCOMPANY_TRANSFER
+    max_amount_usd: 10000000
+    approver_role: treasurer
+    policy_ref: TP-2.1
+  - action: INTERCOMPANY_TRANSFER
+    approver_role: cfo
+    policy_ref: TP-2.1
+  - action: EARLY_PAY_DISCOUNT
+    max_amount_usd: 2000000
+    approver_role: treasurer
+    policy_ref: TP-2.3
+  - action: EARLY_PAY_DISCOUNT
+    approver_role: cfo
+    policy_ref: TP-2.3
+  - action: COLLECTIONS_ESCALATION
+    approver_role: analyst
+    policy_ref: TP-6.1
+  - action: REFINANCING_PLAN
+    approver_role: cfo
+    policy_ref: DP-2.1
+  - action: BANK_REBALANCING_PLAN
+    approver_role: treasurer
+    policy_ref: TP-5.2
+  # ---- listed-company review (Meridian reference policy PC-*; decision mandates, never payments) ----
+  - action: REFINANCING_READINESS_PLAN
+    approver_role: cfo
+    policy_ref: PC-2.1
+  - action: LIQUIDITY_POLICY_REVIEW
+    approver_role: cfo
+    policy_ref: PC-1.1
+  - action: WORKING_CAPITAL_PROGRAM
+    approver_role: treasurer
+    policy_ref: PC-3.1
+  - action: CAPITAL_ALLOCATION_REVIEW
+    approver_role: cfo
+    policy_ref: PC-4.1
+  - action: RATE_RISK_REVIEW
+    approver_role: treasurer
+    policy_ref: PC-5.1
+
+role_hierarchy: {analyst: 1, wc_manager: 2, treasurer: 2, cfo: 3, admin: 0, auditor: 0}   # admin/auditor never approve money
+role_scopes:               # roles whose approval authority is limited to specific action types
+  wc_manager: [COLLECTIONS_ESCALATION, EARLY_PAY_DISCOUNT, WORKING_CAPITAL_PROGRAM]
+  analyst: [COLLECTIONS_ESCALATION]
+public_company:            # Meridian reference policy PC-* (thresholds for listed-company reviews)
+  min_liquidity_coverage: 1.25              # PC-1.1
+  refinancing_trigger_share_of_liquidity: 0.25   # PC-2.1
+  wc_days_trigger: 5.0                      # PC-3.1 (YoY change in DSO or DIO)
+  repricing_trigger_share_of_ebitda: 0.005  # PC-5.1
+execution:                 # TP-7.2 payment release
+  release_roles: [treasurer, cfo]           # dual control: releaser must differ from approver and requester
+  transmission_channel: none                # none | host_to_host | swift — no channel configured in this deployment
+segregation_of_duties: true
+autonomous_execution: false      # TP-7.1: AI never executes payments
+
+tool_permissions:           # least privilege per agent (deny by default); no agent can see raw IBANs
+  planner_agent: [search_treasury_policy]
+  insight_agent: [get_cfo_insight]
+  forecast_agent: [get_treasury_kpis, run_cash_forecast, get_public_cash_flow]
+  working_capital_agent: [get_collections_priorities, get_early_pay_opportunities, get_working_capital_drivers, get_public_working_capital]
+  risk_agent: [get_risk_events, get_debt_profile, get_risk_register, get_public_debt_and_rates]
+  liquidity_agent: [get_entity_cash_positions, get_liquidity_overview, get_public_liquidity]
+  policy_agent: [search_treasury_policy]
+  data_intelligence_agent: [get_data_provenance, get_data_quality, get_public_data_quality]
+  scenario_agent: [compare_scenarios, get_public_scenarios]
+  optimization_agent: [optimize_liquidity, get_early_pay_opportunities, get_debt_profile]
+  decision_agent: []
+  governance_agent: []
+  briefing_agent: []
+
+liquidity:                 # TP-3.3 / TP-5.2
+  management_min_liquidity_usd: 300000000   # internal floor above the RCF-22.1 covenant minimum
+  bank_max_share: 0.40                      # max share of group cash at any single bank
+  bank_min_rating: "A-"                     # counterparties below this rating are capped at 15%
+  bank_low_rating_max_share: 0.15
+  covenant_watch_headroom: 0.20             # < 20% headroom => WATCH
+
+debt:                      # Debt & funding policy (DP-*)
+  refinancing_window_months: 18             # DP-2.1: launch refinancing at least 18 months before maturity
+  fixed_share_min: 0.40                     # DP-3.1: fixed-rate share of gross debt
+  fixed_share_max: 0.75
+  new_issue_premium_bps: 25                 # assumption used to ESTIMATE new-issue cost (UST + BBB OAS + premium)
+
+revolver:
+  prepay_min_usd: 5000000
+  prepay_multiple_usd: 1000000
+  policy_ref: RCF-8.1
+
+dlp:
+  mask_patterns:
+    iban: "\\b[A-Z]{2}\\d{2}[A-Z0-9]{10,30}\\b"
+    email: "[\\w.+-]+@[\\w-]+\\.[\\w.]+"
+  mask_fields: [iban]
+
+guardrails:
+  injection_patterns:
+    - "ignore (all )?(previous|prior) instructions"
+    - "(ai|assistant|copilot)\\s*:.*approve"
+    - "mark(ing)? (them|it|this) as .*approved"
+    - "disregard (the )?(policy|rules)"
+    - "you are now"
+  numeric_grounding_tolerance: 0.02   # every $ figure in a briefing must match tool output within 2%
+
+llm:
+  max_calls_per_run: 24
