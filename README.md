@@ -1,210 +1,271 @@
 <div align="center">
 
-# MERIDIAN
+# Meridian
 
-### Enterprise AI Liquidity, Treasury & Working-Capital Intelligence Platform
+### Treasury & working-capital intelligence for the CFO office
 
-DATA → INTELLIGENCE → FORECAST → OPTIMIZATION → RECOMMENDATION → HUMAN REVIEW → APPROVAL → PREPARATION → DUAL-CONTROL EXECUTION
+**Real SEC filings and market data → governed AI agents → policy-checked recommendations → human approval → tamper-evident audit.**
+**No money ever moves without people, and Meridian itself can never send a payment.**
 
-**Primary case: Caterpillar Inc. (NYSE: CAT): `PUBLIC · REAL` data from SEC EDGAR XBRL filings and public market data.**
-
-**FastAPI · LangGraph · MCP · Claude (Anthropic, configurable) · MongoDB · scikit-learn · SciPy HiGHS · ECharts**
-
-![version](https://img.shields.io/badge/version-3.5.4-blue)
-![tests](https://img.shields.io/badge/tests-311%20passed%20%28300%20%2B%206%20MongoDB%20%2B%205%20live%29-brightgreen)
-![gates](https://img.shields.io/badge/release%20gates-11%2F11%20on%203%20seeds-brightgreen)
-![no docker](https://img.shields.io/badge/deploy-native%20Windows%20%2F%20Linux%2C%20no%20Docker%2C%20no%20WSL-informational)
+![version](https://img.shields.io/badge/version-3.5.4-1f5fa8)
+![tests](https://img.shields.io/badge/tests-381%20passed-2e7d32)
+![types](https://img.shields.io/badge/mypy-0%20errors-2e7d32)
+![security](https://img.shields.io/badge/bandit-0%20high%20%7C%200%20medium-2e7d32)
+![data](https://img.shields.io/badge/data-SEC%20EDGAR%20%C2%B7%20NY%20Fed%20%C2%B7%20Treasury%20%C2%B7%20FRED%20%C2%B7%20ECB-555)
+![deploy](https://img.shields.io/badge/runs%20on-Windows%20%7C%20Linux%2C%20no%20Docker-555)
+![license](https://img.shields.io/badge/license-MIT-555)
 
 ![Executive Command Center — Caterpillar Inc.](docs/images/v3/01_command.png)
 
 </div>
 
+---
+
+## The business problem
+
+**Every company has cash it cannot see and risks it has not priced.** A CFO has to answer three questions every
+quarter, and in most companies the answers come from spreadsheets nobody can trace:
+
+| The question | Why it is hard today | What it costs when it goes wrong |
+|---|---|---|
+| **1. Where is our cash trapped?** Unpaid customer invoices (receivables) and stock sitting in warehouses (inventory) | Data is spread across ERP, banks and spreadsheets; there is no fair comparison with peers | Cash is borrowed that the company already has. For Caterpillar, **one day of collections is worth $205M** ($74.7B revenue ÷ 365) |
+| **2. Can we pay the debt that is coming due?** Liquidity vs debt due in the next 12 months | Cash, credit lines and debt are reported on different dates and mixed up | Refinancing is started too late, at worse rates — or a covenant is breached |
+| **3. What happens if rates or demand move?** Interest-rate and downturn exposure | Scenarios are built by hand, rarely re-run, and not linked to policy | Surprise costs: +1 % on Caterpillar's 12-month debt is **$126M a year** |
+
+And when a decision is finally made, there is often **no reliable record** of who approved what, on which numbers,
+under which policy — exactly what auditors and regulators ask for.
+
+### Who it is for
+
+| Role | What Meridian gives them |
+|---|---|
+| **CFO** | One screen: liquidity, debt due, cash outlook, risks — and the decisions waiting for them |
+| **Group Treasurer** | Refinancing readiness, rate exposure, scenarios, bank-ready payment drafts under dual control |
+| **Working-capital manager** | Where receivables and inventory are out of line, with the cash value of fixing it |
+| **Analyst** | A full governed analysis in under a second (measured 0.3–0.4 s), with every number traced to its source |
+| **Internal audit / risk** | A tamper-evident record of every recommendation, approval, denial and the evidence behind it |
+| **Consultants / advisers** | An outside-in working-capital diagnostic across 390 companies — the first step of a cash-release engagement |
+
+### How Meridian solves it
+
+| Step | What happens | Outcome |
+|---|---|---|
+| 1. Collect | Pulls real filings (SEC) and market rates; later a client's ERP and bank files | Numbers with a source, a date and a filing link |
+| 2. Analyse | Calculates liquidity, debt, free cash flow, working-capital days, peer benchmarks, scenarios | Consistent, same-date metrics — no spreadsheet errors |
+| 3. Recommend | AI agents check the numbers against policy rules and draft recommendations with their evidence | e.g. "Approve a refinancing plan for $12.63B due within 12 months" |
+| 4. Decide | The right person approves or rejects; the requester can never approve their own request | Decisions follow the company's approval matrix |
+| 5. Record | Every decision and every denied attempt goes into a hash-chained audit trail | Audit-ready; any tampering is detected |
+| 6. Execute safely | Approved payments become draft bank files; release needs a second person; Meridian itself cannot send money | No unauthorised or accidental payments |
+
+### Real-life use cases
+
+* **Quarterly liquidity review** — the CFO sees whether liquidity covers the next 12 months of debt and approves a
+  refinancing plan in time (Caterpillar: 1.55x covered, plan triggered because debt due is 64 % of liquidity).
+* **Working-capital programme** — find which lever (collections, inventory, supplier terms) releases the most cash and
+  size it against peers (Caterpillar: inventory 148 days vs 98 for peers → **$6.1B**).
+* **Rate and downturn planning** — test "revenue −15 %, collections +10 days, rates +1 %" and see free cash flow,
+  coverage and leverage move together.
+* **Board pack** — one-click report with the headline numbers, sources and limitations.
+* **Audit and controls** — show auditors exactly who approved what, when, on which evidence and policy version.
+* **Outside-in diagnostic** — benchmark any SEC-listed company before an engagement or an investment discussion.
+
+**Meridian** turns public filings and market data into decision-ready recommendations, and puts every one of them
+through the controls a CFO office needs: approval authority, segregation of duties, dual control and a
+tamper-evident audit trail.
+
+## What it found (real data)
+
+| | Result | Basis |
+|---|---|---|
+| **Cash trapped in working capital** — 390 large US-listed companies, FY2025 SEC filings | **$152.1B** beyond peer medians (receivables $72.4B, inventory $79.8B); **$355.1B** to peer top quartile | ESTIMATED from REPORTED filings |
+| Supplier-terms opportunity (shown separately — it comes out of suppliers' pockets) | $53.1B, only with supplier-finance or card-programme protection | ESTIMATED |
+| Caterpillar — liquidity vs debt due within 12 months | $19.64B vs $12.63B → **1.55x** covered; refinancing-readiness plan triggered (64 % of liquidity) | CALCULATED |
+| Caterpillar — inventory vs industrial-machinery peers | 148 days vs 98 median → **$6.1B** opportunity | ESTIMATED |
+| Forecast method on **1,067,371 real invoices** (13-week, rolling origin, no leakage) | 24.7 % better than naive; *not* better than seasonal-naive — reported as is | Measured |
+
+Every input links to its SEC filing (accession number). Opportunities are hypotheses for management, not findings
+about any company. Full method: [`docs/VALUE_AT_STAKE_STUDY.md`](docs/VALUE_AT_STAKE_STUDY.md).
+
 ## Architecture
 
+![Meridian architecture](docs/images/architecture.svg)
+
+<details>
+<summary>Text version (Mermaid)</summary>
+
 ```mermaid
-flowchart TD
-    U[Users · 6 roles] --> C[Web console · JS + ECharts]
-    C --> API[FastAPI · 78 endpoints · JWT + RBAC]
-    S[Scheduler · startup review] --> API
-    API --> LG[LangGraph pipeline · planner → 9 agents → briefing → grounding guardrail]
-    API --> AP[Approval workflow · policy-as-code · SoD · dual control]
-    API --> AU[(Audit ledger · SHA-256 hash chain)]
-    LG --> AP --> AU
-    LG --> MCP[MCP server · 27 read-only tools]
-    LG --> LLM[LLM · Claude if key set, else deterministic]
-    MCP --> PA[Public-company analytics · metrics + lineage · PC-* rules]
-    MCP --> SE[Synthetic engine · Monte-Carlo · LP · ML · RAG]
-    PA --> SEC[(SEC EDGAR XBRL)]
-    PA --> MKT[(SOFR · UST · FRED · ECB)]
-    SE --> DB[(MongoDB / in-memory)]
-    SE -.-> ERP[ERP / bank / TMS · NOT CONFIGURED]
+flowchart LR
+    subgraph Channels
+      U[6 finance roles] --> C[Web console · 15 workspaces]
+      R[REST / OpenAPI · 83 endpoints]
+      S[Scheduler]
+    end
+    C & R & S --> API[FastAPI gateway<br/>JWT · RBAC · CSP]
+    API --> P[LangGraph pipeline<br/>planner → 6 analysis agents → decision → policy → governance → briefing → grounding]
+    P --> M[MCP server · 27 read-only tools]
+    M --> AN[Analytics engines<br/>metrics + lineage · Value at Stake · forecasts · scenarios]
+    AN --> PUB[(Public data · SEC · NY Fed · Treasury · FRED · ECB)]
+    P -->|recommendations| AP[Policy & approvals<br/>authority · SoD · CAS · replay guards]
+    AP --> EX[Execution boundary<br/>pain.001 DRAFT · channel none]
+    AP --> AUD[(Audit ledger · SHA-256 hash chain)]
+    P --> DB[(SQLite / MongoDB)]
+    AUD --> DB
+    ING[Governed ingestion<br/>ERP CSV · camt.053 · BAI2] -.-> AN
+    CL[Client ERP / bank / SSO<br/>NOT CONFIGURED] -.-> ING
 ```
 
-## Analyse any SEC-reporting company
+</details>
 
-Caterpillar is the primary case, but Meridian is not limited to one company. Open the company menu in the header
-(**switch / add company**), type any ticker or 10-digit CIK (for example `MMM`, `MSFT` or `0000021344`) and press **Add**.
-Meridian fetches the issuer's XBRL company facts live from SEC EDGAR, validates them, stores a dated, checksummed
-snapshot, and the same governed pipeline (agents, metrics with lineage, recommendations, approvals, audit) runs on it.
-
-* Bundled snapshots (work offline): Caterpillar (CAT), The Coca-Cola Company (KO), Honeywell (HON), Apple (AAPL), Deere (DE).
-* API: `GET /v1/companies`, `POST /v1/companies {"query": "MSFT"}` (requires `run_agents`; audited `company_added`).
-  Every `/v1/public/*` endpoint, governed run and recommendation list takes `cik`.
-* Nothing is estimated to fill gaps: a filer without us-gaap 10-K/10-Q cash or revenue facts (for example an IFRS
-  20-F filer) is refused with the reason; a concept the issuer does not tag is shown as NOT AVAILABLE; debt facts
-  older than the latest 10-K are treated as stale, not reused.
-* Peer context uses a default industrial peer set unless peers are given; the UI states that comparisons are directional.
-
-## Three data classes, never mixed
-
-| Label | What it is | Where it is used |
+| Layer | What it does | Key modules |
 |---|---|---|
-| `PUBLIC · REAL` | Caterpillar Inc.'s as-filed SEC XBRL facts from its 10-K and 10-Q filings (cash, receivables, inventories, payables, revenue, COGS, operating profit, D&A, operating cash flow, capex, dividends, repurchases, short-term borrowings, long-term debt and its maturity schedule, committed facilities, cash interest paid, derivative notional, RPO), SEC peer 10-K facts, NY Fed SOFR/EFFR, the U.S. Treasury par curve, FRED ICE BofA Single-A and BBB OAS, and ECB FX | All 14 workspaces of the primary case |
-| `SYNTHETIC · EVALUATION` | A simulated multinational ("Orion Industrial Group") | Only for capabilities that need private transaction data: the 13-week invoice-level forecast, intercompany optimisation, collections and supplier analytics, and payment-file (pain.001) execution controls. Switch to it in the header; it is labelled on every screen |
-| `CLIENT · NOT CONFIGURED` | ERP (SAP S/4HANA, Oracle Fusion, NetSuite), bank host-to-host / SWIFT, TMS, SSO | Interfaces exist and are tested (ERP CSV, ISO 20022 camt.053, BAI2, debt/covenant CSV). No live connector is claimed |
+| Channels | Role-aware console (15 workspaces), REST API, scheduled governed review | `console/`, `api/main.py` |
+| API & security | JWT sessions, RBAC on every route, four-eyes role grants, lockout without enumeration, security headers | `api/`, `security/auth.py` |
+| Intelligence | LangGraph agent pipeline over a read-only MCP tool server; Claude when a key is set, deterministic reasoners otherwise; every $ figure grounded against tool output | `orchestration/`, `mcp_server/`, `agents/`, `llm/` |
+| Analytics | Public-company metrics with filing-level lineage, recast-safe TTM, cross-company Value at Stake, forecasts, scenarios, Monte-Carlo / LP / ML on the synthetic case | `public_company/`, `benchmark/`, `analytics/`, `ml/` |
+| Governance | Policy-as-code approval matrix, segregation of duties, superseded-run / policy-drift / replay guards, compare-and-swap, dual-control release, hash-chained audit | `governance/`, `orchestration/service.py`, `execution/` |
+| Data | Dated, checksummed public snapshots; governed ingestion (ERP CSV, ISO 20022 camt.053, BAI2); SQLite by default, MongoDB for multi-replica | `market/`, `ingest/`, `store/` |
 
-Every `PUBLIC · REAL` number opens a lineage drawer:
-**SOURCE → FILING (form, accession, filed date, EDGAR link) → PERIOD → FACTS → TRANSFORMATION → CALCULATION → RESULT → USED BY**.
-If public data cannot support a metric, it is shown as `NOT AVAILABLE FROM PUBLIC DATA` with the reason. Nothing is imputed.
+## Trust by design
 
-## What the platform concludes for Caterpillar (latest data: 10-Q to 2026-06-30, 10-K FY2025)
-
-| | Value | Basis |
-|---|---|---|
-| Cash & equivalents (2026-06-30) | $6.71B | REPORTED |
-| Liquidity: cash + undrawn committed facilities (2025-12-31) | $19.64B | CALCULATED |
-| Debt due within 12 months | $12.63B (1.55x covered) | CALCULATED |
-| Total debt / net debt (2025-12-31, incl. Cat Financial) | $43.33B / $33.35B | CALCULATED |
-| FCF proxy vs shareholder returns (TTM) | $10.70B vs $10.04B | CALCULATED |
-| DSO / DIO / DPO / CCC | 64.4 / 153.4 / 76.7 / 141.1 days | CALCULATED |
-| +100 bps on debt due ≤12m | $126.3M a year | ESTIMATED |
-
-At start-up a scheduled, audited governed run evaluates five reference-policy rules (PC-*), so the dashboard opens with live decisions. It produces **three recommendations**, because the evidence triggers three rules:
-
-1. Refinancing-readiness plan (CFO).
-2. Receivables review, because DSO rose 8.3 days year on year (Treasurer / WC Manager).
-3. Rate-risk review (Treasurer).
-
-It also reports the two rules that were **not** triggered: liquidity coverage and shareholder returns vs FCF. Recommendations are decision mandates, so no money ever moves. The PC-* policy is Meridian's illustrative reference framework, **not** Caterpillar's internal policy.
+* **Three data classes, never mixed.** `PUBLIC · REAL` (SEC filings, market data), `SYNTHETIC · EVALUATION` (a
+  fictional group used only where private ledgers are needed) and `CLIENT · NOT CONFIGURED` (ERP, bank, SSO
+  interfaces). Every screen says which one you are looking at.
+* **Lineage on every number:** SOURCE → FILING (form, accession, date) → PERIOD → FACTS → TRANSFORMATION →
+  CALCULATION → RESULT. If public data cannot support a metric it shows *Not available*, never a guess.
+* **Financial integrity:** balances and flows share one date (mixed dates must declare why); TTM bridges the latest
+  fiscal year and year-to-date figures so restatements are handled; stale snapshots are flagged.
+  54/54 reported figures of the bundled companies equal live SEC values
+  ([evidence](docs/evidence/sec_reconciliation_all_companies.txt)).
+* **AI you can audit:** agents only call read-only tools; every dollar figure and multiple they write must match a
+  computed value at the precision shown; cited policy clauses must have been retrieved; outbound text is DLP-redacted.
+* **Decisions, not transactions.** Recommendations are decision mandates. Approval needs the right authority and a
+  different person from the requester; payment files stop at a validated DRAFT and the transmission channel is `none`.
 
 ## Fifteen workspaces
 
-![](docs/images/v3/00_value_at_stake.png)
-**Value at Stake.** Cross-company working-capital study on 390 companies' SEC filings, company lookup with filing links, forecast validation on real invoices, board report.
-
 | | |
 |---|---|
-| ![](docs/images/v3/02_liquidity.png) **Liquidity Intelligence.** Debt composition, coverage, cost of debt, repricing and refinancing estimates, market rates | ![](docs/images/v3/03_network.png) **Financial Network.** Company → domains → metrics → filings, plus peers, market data, recommendations and policy |
-| ![](docs/images/v3/04_working-capital.png) **Working Capital.** DSO/DIO/DPO/CCC trend, YoY bridge, balances, SEC peer context with caveats | ![](docs/images/v3/05_forecast.png) **Forecast Studio.** Seasonal cash outlook with P10–P90 band; point-in-time forecast-vs-actual back-test |
-| ![](docs/images/v3/06_scenarios.png) **Scenario Lab.** Revenue, DSO, DIO, rate and spread shocks → FCF, coverage, leverage | ![](docs/images/v3/07_copilot.png) **AI Decision Center.** Grounded Q&A and the full governed agent run (findings, trace, reproducibility) |
-| ![](docs/images/v3/08_recommendations.png) **Recommendations.** Impact with basis, constraints, risks, evidence, lineage DAG to SEC facts, verified policy citations | ![](docs/images/v3/09_approvals.png) **Approval Center.** Authority, SoD, scopes, workflow stepper, preparation checks, dual-control issue |
-| ![](docs/images/v3/11_lineage.png) **Data Lineage.** Source register, metric register, data boundary, connector status | ![](docs/images/v3/12_audit.png) **Audit & Governance.** Hash-chain verification, denials, agent registry, model card |
+| ![](docs/images/v3/00_value_at_stake.png) **Value at Stake** — 390-company working-capital study, company lookup with filing links, forecast validation, board report | ![](docs/images/v3/02_liquidity.png) **Liquidity Intelligence** — debt composition, coverage, cost of debt, refinancing and repricing estimates, market rates |
+| ![](docs/images/v3/04_working-capital.png) **Working Capital** — DSO/DIO/DPO/CCC trend, year-on-year bridge, peers, value at stake | ![](docs/images/v3/06_scenarios.png) **Scenario Lab** — revenue, collection, inventory, rate and spread shocks → FCF, coverage, leverage |
+| ![](docs/images/v3/07_copilot.png) **AI Decision Center** — governed agent run, grounded Q&A, trace, reproducibility | ![](docs/images/v3/09_approvals.png) **Approval Center** — authority, segregation of duties, evidence chain, dual control |
+| ![](docs/images/v3/11_lineage.png) **Data Lineage** — source register, metric register, data boundary, connectors | ![](docs/images/v3/12_audit.png) **Audit & Governance** — hash-chain verification, denials, agent registry |
 
-Policy & Evidence, System Operations and Administration are in `docs/images/v3/`. Adding a company: [`15_company_menu.png`](docs/images/v3/15_company_menu.png), [`16_added_company_MSFT.png`](docs/images/v3/16_added_company_MSFT.png). The full 24-step approval journey is in [`docs/images/v3/journey/`](docs/images/v3/journey).
+Also: Executive Command Center, Financial Network, Forecast Studio, Recommendations, Policy & Evidence,
+System Operations and Administration ([screenshots](docs/images/v3/)).
 
-## AI provider
-
-`MERIDIAN_LLM_PROVIDER=auto` (default) uses Claude via the Anthropic API when `ANTHROPIC_API_KEY` is set. Without a key, Meridian runs deterministic reasoners over the same tool evidence and the header says **AI OFFLINE / DETERMINISTIC**. It never claims Claude is active when it is not. Model: `MERIDIAN_LLM_MODEL` (default `claude-sonnet-4-5`). Vertex AI and Bedrock are also supported. Verify a live round-trip with `meridian llm-check`. With Claude or without it, every dollar figure an agent writes must match tool output (numeric grounding), and every cited policy clause must have been retrieved (citation verification).
-
-## Quickstart: native Windows (PowerShell), no Docker, no WSL
+## Quickstart (Windows PowerShell — no Docker, no WSL)
 
 ```powershell
 py -3.12 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -e ".[dev]"
-$env:MERIDIAN_MODE="demo"            # evaluation deployment: evaluation sign-ins, synthetic + real public data
-# data is stored persistently in var\meridian.db (SQLite, built into Python, free) and survives restarts
-# optional: $env:ANTHROPIC_API_KEY="..."   → enables Claude; otherwise AI OFFLINE / DETERMINISTIC
-uvicorn meridian.api.main:app --port 8000
+$env:MERIDIAN_MODE = "demo"                 # evaluation sign-ins + real public data + synthetic case
+uvicorn meridian.api.main:app --port 8000   # open http://localhost:8000
 ```
 
-Open http://localhost:8000/. Evaluation sign-ins (password on the sign-in screen; refused outside evaluation mode): `ana` Finance Analyst · `wendy` Working Capital Manager · `tom` Group Treasurer · `carla` CFO · `iris` Internal Audit · `ada` Finance Administrator.
+<details>
+<summary>Linux / macOS</summary>
+
+```bash
+python3.12 -m venv .venv && source .venv/bin/activate
+pip install -e ".[dev]"
+MERIDIAN_MODE=demo uvicorn meridian.api.main:app --port 8000
+```
+</details>
+
+Evaluation sign-ins (password shown on the sign-in screen; refused outside demo mode):
+`ana` Finance Analyst · `wendy` Working Capital Manager · `tom` Group Treasurer · `carla` CFO · `iris` Internal Audit · `ada` Administrator.
+
+Data persists in `var/meridian.db` (SQLite, part of Python). Optional: set `ANTHROPIC_API_KEY` to use Claude; without
+it the header shows **AI OFFLINE / DETERMINISTIC** and nothing is sent to any AI service.
+
+**Analyse any SEC filer:** open *switch / add company* in the header and type a ticker or CIK (e.g. `MSFT`). Bundled
+offline: Caterpillar, Apple, Coca-Cola, Honeywell, Deere.
+
+## Quality and verification
 
 ```powershell
-pytest -q                                          # 300 passed, 11 skipped (MongoDB + live-network suites run separately)
-meridian db status                                 # persistent store: schema version, record counts, audit chain
-meridian db backup                                 # verified online backup to backups\meridian-<timestamp>.db
-$env:MERIDIAN_NETWORK_TESTS="1"; pytest tests/network   # live SEC, NY Fed, Treasury, FRED, ECB
-meridian audit verify                              # verify the hash-chained audit ledger
-python -m meridian.evaluation.benchmark --seed 7   # evaluation gates (also 11, 23)
-python scripts/refresh_public_company.py           # refresh the Caterpillar + peers snapshot from SEC EDGAR (other companies: add/refresh from the header menu)
-meridian doctor                                    # production readiness
+pytest -q                                   # 370 passed, 11 opt-in skipped (MongoDB, live network)
+mypy src/meridian                           # 0 errors (also enforced by a test)
+ruff check src tests scripts                # clean, including security rules
+meridian audit verify                       # verify the hash-chained audit ledger
+meridian db backup                          # verified online backup
+python scripts/build_wc_study.py            # rebuild the 390-company study from SEC (free, no key)
 ```
 
-The UTF-8 handling is Windows-safe: every file read and write declares `encoding="utf-8"`, and console assets are served with `charset=utf-8`. Both are enforced by tests.
+| Check (clean install, v3.5.4) | Result |
+|---|---|
+| Full suite incl. MongoDB 8.0 and live SEC / NY Fed / Treasury / FRED / ECB | **381 passed, 0 failed** |
+| Reported figures vs live SEC (5 companies) | **54 / 54 match** |
+| Browser check — 15 workspaces × 5 companies + synthetic case | 0 JavaScript errors (one wording issue found and fixed) |
+| Static analysis | mypy 0 · ruff clean · Bandit 0 high / 0 medium · pip-audit: no known vulnerabilities |
+| Persistence | real server restart: runs, approvals, users and audit chain survive; backup and restore verified |
 
-## Production
+## Production readiness — honest status
 
-See [`docs/production-runbook.md`](docs/production-runbook.md). Production mode refuses to start with in-memory storage, without a signing key, or without client data loaded through governed ingestion. SQLite (single node) and deterministic AI are accepted but reported as warnings. **Meridian is not yet deployed against a real client system** — see the blocker list in [`PRODUCTION_READINESS_REPORT.md`](PRODUCTION_READINESS_REPORT.md).
+Meridian is production-grade engineering on real public data, **ready for a client pilot**. It is **not** a live
+enterprise deployment. Still needed, each requiring a client or a third party:
 
-## What 3.5 adds — Value at Stake (real data, ₹0)
+1. Enterprise SSO (OIDC/SAML) on the client's identity provider.
+2. The client's ERP and bank feeds (importers exist and are tested on files).
+3. Deployment with TLS, secrets management, off-host backups and monitoring.
+4. An independent penetration test. **No certification is claimed.**
 
-* **Cross-company working-capital study on real SEC filings:** 390 large US-listed companies, fiscal year 2025.
-  **$152.1B** of cash is tied up in receivables and inventory beyond peer medians ($355.1B to top quartile); supplier
-  terms ($53.1B) are reported separately, and 12 companies whose peer comparison is unfair (e.g. Amazon, Microsoft) are
-  routed to segment review instead of inflating the headline. Every input links to its SEC accession number.
-  See [`docs/VALUE_AT_STAKE_STUDY.md`](docs/VALUE_AT_STAKE_STUDY.md).
-* **Forecast validation on real transactions:** 1,067,371 real invoice lines (UCI Online Retail II, D. Chen, CC BY 4.0), 30 rolling origins,
-  13-week horizon, no leakage — results reported as they are, including where the method does not beat a baseline.
-* **Board report:** one click from the Value at Stake workspace; every figure computed at render time.
-* **Demo and interview guide:** [`docs/DEMO_AND_INTERVIEW_GUIDE.md`](docs/DEMO_AND_INTERVIEW_GUIDE.md).
+Details: [`PRODUCTION_READINESS_REPORT.md`](PRODUCTION_READINESS_REPORT.md) ·
+[`docs/ROADMAP_TO_LIVE_DEPLOYMENT.md`](docs/ROADMAP_TO_LIVE_DEPLOYMENT.md) ·
+[`docs/production-runbook.md`](docs/production-runbook.md).
 
-## What 3.4 adds (integrity and control hardening, ₹0)
+## Tech stack
 
-* **No silently mixed dates:** liquidity and its coverage now use cash, facilities and debt from one balance-sheet
-  date (this corrected Coca-Cola's coverage from 3.75x to 5.27x). Any metric that combines dates by definition says so.
-* **Stale-data warnings:** a snapshot more than 135 days behind its latest filed quarter is flagged on every page and
-  in Data Lineage.
-* **Approval integrity:** decisions on superseded runs or under a changed policy version are refused; replays are
-  refused; two simultaneous decisions cannot both succeed (compare-and-swap on the run revision in SQLite, MongoDB and
-  memory); the decision audit record carries the policy version and evidence.
-* **Four-eyes on privileged roles:** granting Treasurer, CFO or Administrator through the API needs a second
-  administrator; nobody can change their own role; lockout no longer reveals whether an account exists.
-* **New tests:** formula reconciliation for every bundled company, TTM vs annual + YTD, units, staleness, invalid
-  inputs, escalation, replay, concurrency, SEC outage.
+| Area | Technology |
+|---|---|
+| API & UI | Python 3.12, FastAPI, Pydantic, vanilla JS + ECharts (no build step) |
+| AI | LangGraph, Model Context Protocol (MCP), Anthropic Claude (optional), deterministic reasoners |
+| Analytics | NumPy, SciPy (HiGHS LP), scikit-learn (gradient-boosted quantile model), hybrid vector + BM25 retrieval |
+| Data | SEC EDGAR XBRL (companyfacts, frames), NY Fed, U.S. Treasury, FRED, ECB, UCI Online Retail II |
+| Storage | SQLite (WAL, migrations, append-only audit triggers), MongoDB (optional) |
+| Standards | ISO 20022 camt.053 / pain.001, BAI2, OpenAPI |
+| Quality | pytest, mypy, ruff, Bandit, pip-audit, Playwright browser checks |
 
-## What 3.3 adds (₹0, no install)
+## Repository layout
 
-* **Persistent by default:** users, runs, approvals, decisions, added companies and the audit chain are stored in
-  SQLite (`var/meridian.db`, part of Python — no server, no Docker, no cost) and survive restarts (tested across three
-  separate processes). Versioned migrations, verified online backup and restore (`meridian db ...`). The audit table is
-  append-only inside the database (triggers reject UPDATE/DELETE). MongoDB remains supported for multi-replica setups.
-* **No silent memory fallback:** in-memory storage is for automated tests only and is refused in production mode.
-* **Access control proven on every route:** all 70+ `/v1` endpoints refuse anonymous calls; each role's permissions
-  are tested on direct API calls.
-* **Bank statement quality:** opening + entries = closing reconciliation to the cent, duplicate statement and
-  transaction detection.
-* **AI at ₹0:** deterministic, evidence-grounded reasoning needs no API key and makes no external AI calls; Claude is
-  optional and off unless you set a key.
-
-## What 3.2 adds (production hardening)
-
-* **Precision-aware grounding:** every $ figure and multiple an AI writes must equal a tool-computed value at the
-  precision shown (`$12.63B` ±$5M), with sign and currency checks, instead of a blanket 2% tolerance.
-* **Claude client:** outbound DLP redaction, timeouts and bounded retries, token budget per run, and honest labels:
-  live Claude, offline deterministic, or a labelled fallback after an error or exhausted budget.
-* **Resilient public-data layer:** retries with backoff, `Retry-After`, SEC fair-access throttling, caching; opt-in
-  live tests against the real sources.
-* **Audit you can defend:** sequence-bound hashes, tamper tests, external chain anchors, and a MongoDB role that can
-  append to the audit log but never change or delete it.
-* **Operations:** JSON access logs with request ids, release secret scanner, dependency audit, runbook for backup,
-  rollback and incidents. See [`PRODUCTION_READINESS_REPORT.md`](PRODUCTION_READINESS_REPORT.md) for what is verified
-  and what still needs client systems or credentials.
+```
+src/meridian/
+  api/             FastAPI app and routes
+  console/         web console (HTML, JS, CSS)
+  orchestration/   LangGraph pipelines, approval service
+  agents/ llm/     agent reasoners, Claude client with DLP and budgets
+  mcp_server/      read-only MCP tools
+  public_company/  SEC metrics, lineage, reference-policy rules
+  benchmark/       Value at Stake study, forecast validation, board report
+  analytics/ ml/   forecasting, scenarios, optimisation, payment-delay model
+  governance/      policy-as-code, grounding, audit ledger
+  ingest/ market/  governed ingestion, public-data connectors
+  security/ store/ auth and RBAC, SQLite / MongoDB stores
+tests/             unit and integration tests (incl. access matrix, hardening, integrity)
+docs/              study, runbook, roadmap, evidence, ADRs, screenshots
+scripts/           data refresh, diagram, release scanning
+```
 
 ## Documentation
 
-* [`PRODUCTION_READINESS_REPORT.md`](PRODUCTION_READINESS_REPORT.md) — 3.5 production blockers, verification and readiness by category
-* [`docs/VALUE_AT_STAKE_STUDY.md`](docs/VALUE_AT_STAKE_STUDY.md) — cross-company working-capital study (method, findings, limits)
-* [`docs/DEMO_AND_INTERVIEW_GUIDE.md`](docs/DEMO_AND_INTERVIEW_GUIDE.md) — 3-minute demo and interview Q&A
-* [`docs/ROADMAP_TO_LIVE_DEPLOYMENT.md`](docs/ROADMAP_TO_LIVE_DEPLOYMENT.md) — phases to a live deployment: built today vs needs a client
-* [`docs/PRODUCTION_READINESS_REPORT_v3.4.md`](docs/PRODUCTION_READINESS_REPORT_v3.4.md), [`v3.3`](docs/PRODUCTION_READINESS_REPORT_v3.3.md) — earlier hardening rounds
-* [`docs/FINAL_VERIFICATION_REPORT.md`](docs/FINAL_VERIFICATION_REPORT.md) — 3.1 verification (history)
-* [`docs/PUBLIC_COMPANY_CASE.md`](docs/PUBLIC_COMPANY_CASE.md) — real-company data inventory, metric definitions, lineage, limits
-* [`docs/PLATFORM_V3.md`](docs/PLATFORM_V3.md) — architecture, agents, graph, RAG/policy, security, SoD, audit
-* [`docs/governance.md`](docs/governance.md), [`docs/AUDIT.md`](docs/AUDIT.md), [`docs/adr/`](docs/adr), [`docs/evidence/`](docs/evidence)
+| Document | Purpose |
+|---|---|
+| [`docs/VALUE_AT_STAKE_STUDY.md`](docs/VALUE_AT_STAKE_STUDY.md) | Cross-company study: method, findings, limitations |
+| [`docs/DEMO_AND_INTERVIEW_GUIDE.md`](docs/DEMO_AND_INTERVIEW_GUIDE.md) | 3-minute demo script and Q&A |
+| [`PRODUCTION_READINESS_REPORT.md`](PRODUCTION_READINESS_REPORT.md) | Blockers, verification, readiness by category |
+| [`docs/ROADMAP_TO_LIVE_DEPLOYMENT.md`](docs/ROADMAP_TO_LIVE_DEPLOYMENT.md) | What is built vs what needs a client |
+| [`docs/production-runbook.md`](docs/production-runbook.md) | Configure, back up, restore, upgrade, incident response |
+| [`docs/PUBLIC_COMPANY_CASE.md`](docs/PUBLIC_COMPANY_CASE.md) | Metric definitions, lineage, data limits |
+| [`docs/PLATFORM_V3.md`](docs/PLATFORM_V3.md), [`docs/architecture.md`](docs/architecture.md) | Platform design, agents, governance |
+| [`CHANGELOG.md`](CHANGELOG.md) | Release history |
 
 ---
 
-**Disclaimer.** Company figures (Caterpillar and the 390 companies in the Value at Stake study) are as filed with the SEC and are used for analysis only. Meridian is not affiliated with any company analysed; value-at-stake estimates are hypotheses from public filings, not findings about any company. Recommendations are illustrative outputs of a reference policy, not advice to the company. The evaluation company, its policies and agreements are fictional. This is not financial or legal advice.
+**Disclaimer.** Company figures are as filed with the SEC and used for analysis only. Meridian is not affiliated with
+any company analysed; value-at-stake figures are estimates from public filings, not findings about any company. The
+PC-* rules are Meridian's illustrative reference policy, not any company's own policy. The evaluation company
+("Orion Industrial Group"), its policies and agreements are fictional. Forecast validation uses the UCI Online Retail II
+dataset (D. Chen, CC BY 4.0). Not financial or legal advice.
 
-**Author:** Shraddha Todkari.
+**Author:** Shraddha Todkari · MIT License

@@ -2,7 +2,7 @@
 
 > **v3:** the full v3 design (data platform layers, 11-agent chain, graph intelligence, recommendation lifecycle, dual-control release, observability) is in [`PLATFORM_V3.md`](PLATFORM_V3.md). This page keeps the core engine description.
 
-![architecture](images/architecture.png)
+![architecture](images/architecture.svg)
 
 ## Layers
 
@@ -14,7 +14,7 @@
 | Tool protocol | Governed, read-only tool surface (MCP) | `mcp_server/server.py`, `orchestration/gateway.py` |
 | Treasury engine | All numbers: ML, forecast, optimisation, scenarios, RAG | `analytics/*`, `ml/ar_model.py`, `nlp/*` |
 | Governance | Policy-as-code, approvals, DLP, grounding, audit | `governance/*`, `config/treasury_policy.yaml` |
-| Persistence | MongoDB Atlas (documents, GridFS models, vectors); in-memory only in demo/tests | `store/*` |
+| Persistence | SQLite by default (WAL, migrations, append-only audit); MongoDB for multi-replica; in-memory only in tests | `store/*` |
 | Execution | ISO 20022 pain.001 drafts after approval | `execution/payments.py` |
 
 ## A daily run, step by step

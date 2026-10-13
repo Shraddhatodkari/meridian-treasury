@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1480 1010" width="1480" height="1010" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a869a"/></marker></defs>
+<rect width="1480" height="1010" fill="#ffffff"/>
+<text x="30" y="42" font-size="24" font-weight="800" fill="#101828" text-anchor="start">Meridian — architecture</text>
+<text x="30" y="66" font-size="13.5" font-weight="400" fill="#475467" text-anchor="start">Treasury &amp; working-capital intelligence on real public data · governed AI agents · human approval · tamper-evident audit · no money ever moves</text>
+<rect x="1000" y="30" width="14" height="14" rx="3" fill="#067647"/>
+<text x="1020" y="42" font-size="11.5" font-weight="700" fill="#475467" text-anchor="start">PUBLIC · REAL</text>
+<rect x="1155" y="30" width="14" height="14" rx="3" fill="#7a5af8"/>
+<text x="1175" y="42" font-size="11.5" font-weight="700" fill="#475467" text-anchor="start">SYNTHETIC</text>
+<rect x="1310" y="30" width="14" height="14" rx="3" fill="#98a2b3"/>
+<text x="1330" y="42" font-size="11.5" font-weight="700" fill="#475467" text-anchor="start">NOT CONFIGURED</text>
+<rect x="20" y="86" width="1440" height="150" rx="14" fill="#f2f4f7" stroke="#d0d5dd"/>
+<text x="36" y="106" font-size="11.5" font-weight="800" fill="#475467" text-anchor="start">USERS &amp; CHANNELS</text>
+<rect x="40.0" y="116" width="335.0" height="104" rx="10" fill="#ffffff" stroke="#d0d5dd" stroke-width="1.4"/>
+<text x="54.0" y="140" font-size="14" font-weight="700" fill="#101828" text-anchor="start">Six finance roles</text>
+<text x="54.0" y="162" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">Analyst · WC Manager · Treasurer</text>
+<text x="54.0" y="180" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">CFO · Internal Audit · Administrator</text>
+<text x="54.0" y="198" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">permissions enforced server-side</text>
+<rect x="395.0" y="116" width="335.0" height="104" rx="10" fill="#ffffff" stroke="#d0d5dd" stroke-width="1.4"/>
+<text x="409.0" y="140" font-size="14" font-weight="700" fill="#101828" text-anchor="start">Web console</text>
+<text x="409.0" y="162" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">15 workspaces · ECharts</text>
+<text x="409.0" y="180" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">lineage drawer on every number</text>
+<text x="409.0" y="198" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">Value at Stake · board report</text>
+<rect x="750.0" y="116" width="335.0" height="104" rx="10" fill="#ffffff" stroke="#d0d5dd" stroke-width="1.4"/>
+<text x="764.0" y="140" font-size="14" font-weight="700" fill="#101828" text-anchor="start">REST / OpenAPI clients</text>
+<text x="764.0" y="162" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">83 /v1 endpoints · OpenAPI docs</text>
+<text x="764.0" y="180" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">bearer tokens (no cookies → no CSRF)</text>
+<text x="764.0" y="198" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">every route requires a role</text>
+<rect x="1105.0" y="116" width="335.0" height="104" rx="10" fill="#ffffff" stroke="#d0d5dd" stroke-width="1.4"/>
+<text x="1119.0" y="140" font-size="14" font-weight="700" fill="#101828" text-anchor="start">Scheduler</text>
+<text x="1119.0" y="162" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">governed review at start-up</text>
+<text x="1119.0" y="180" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">runs as meridian-scheduler</text>
+<text x="1119.0" y="198" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">audited like any user</text>
+<rect x="20" y="262" width="1440" height="150" rx="14" fill="#eef4ff" stroke="#b2ccff"/>
+<text x="36" y="282" font-size="11.5" font-weight="800" fill="#475467" text-anchor="start">API &amp; SECURITY</text>
+<rect x="40.0" y="292" width="453.3333333333333" height="104" rx="10" fill="#ffffff" stroke="#d0d5dd" stroke-width="1.4"/>
+<text x="54.0" y="316" font-size="14" font-weight="700" fill="#101828" text-anchor="start">Identity &amp; access</text>
+<rect x="377.5333333333333" y="301" width="105.8" height="20" rx="10" fill="#667085"/>
+<text x="430.43333333333334" y="315" font-size="10.5" font-weight="700" fill="#ffffff" text-anchor="middle">LOCAL ACCOUNTS</text>
+<text x="54.0" y="338" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">PBKDF2-SHA256 (600k) · lockout without enumeration</text>
+<text x="54.0" y="356" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">four-eyes privileged role grants</text>
+<text x="54.0" y="374" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">enterprise SSO (OIDC): not configured</text>
+<rect x="513.3333333333333" y="292" width="453.3333333333333" height="104" rx="10" fill="#ffffff" stroke="#d0d5dd" stroke-width="1.4"/>
+<text x="527.3333333333333" y="316" font-size="14" font-weight="700" fill="#101828" text-anchor="start">Operations</text>
+<text x="527.3333333333333" y="338" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">/health · /ready · meridian doctor</text>
+<text x="527.3333333333333" y="356" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">db status · backup · restore (verified)</text>
+<text x="527.3333333333333" y="374" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">audit verify · anchor · JSON logs · /metrics</text>
+<rect x="986.6666666666666" y="292" width="453.3333333333333" height="104" rx="10" fill="#ffffff" stroke="#d0d5dd" stroke-width="1.4"/>
+<text x="1000.6666666666666" y="316" font-size="14" font-weight="700" fill="#101828" text-anchor="start">FastAPI gateway</text>
+<text x="1000.6666666666666" y="338" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">JWT (HS256) · logout revocation · RBAC per route</text>
+<text x="1000.6666666666666" y="356" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">CSP · HSTS · nosniff · request ids</text>
+<text x="1000.6666666666666" y="374" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">input validation (422) · rate-safe SEC client</text>
+<rect x="20" y="438" width="1060" height="262" rx="14" fill="#f4f3ff" stroke="#c7c2f9"/>
+<text x="36" y="458" font-size="11.5" font-weight="800" fill="#475467" text-anchor="start">INTELLIGENCE</text>
+<rect x="40.0" y="468" width="324.0" height="210" rx="10" fill="#ffffff" stroke="#d0d5dd" stroke-width="1.4"/>
+<text x="54.0" y="492" font-size="14" font-weight="700" fill="#101828" text-anchor="start">Analytics engines</text>
+<text x="54.0" y="514" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">Public-company metrics + lineage</text>
+<text x="54.0" y="532" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">TTM: FY + YTD − prior YTD (recast-safe)</text>
+<text x="54.0" y="550" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">Value at Stake: 390 cos, SIC peers</text>
+<text x="54.0" y="568" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">forecasts · scenarios · rate shocks</text>
+<text x="54.0" y="586" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">synthetic: Monte Carlo · HiGHS LP ·</text>
+<text x="54.0" y="604" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">gradient-boosted payment delay</text>
+<text x="54.0" y="622" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">policy RAG: vector + BM25</text>
+<rect x="388.0" y="468" width="324.0" height="210" rx="10" fill="#ffffff" stroke="#d0d5dd" stroke-width="1.4"/>
+<text x="402.0" y="492" font-size="14" font-weight="700" fill="#101828" text-anchor="start">MCP tool server</text>
+<rect x="669.9" y="477" width="32.1" height="20" rx="10" fill="#6941c6"/>
+<text x="685.95" y="491" font-size="10.5" font-weight="700" fill="#ffffff" text-anchor="middle">MCP</text>
+<text x="402.0" y="514" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">27 read-only tools</text>
+<text x="402.0" y="532" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">agents cannot write, pay or approve</text>
+<text x="402.0" y="550" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">every call traced</text>
+<text x="402.0" y="568" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start"></text>
+<text x="402.0" y="586" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">outbound DLP before any LLM call</text>
+<text x="402.0" y="604" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">token &amp; call budget per run</text>
+<rect x="736.0" y="468" width="324.0" height="210" rx="10" fill="#ffffff" stroke="#d0d5dd" stroke-width="1.4"/>
+<text x="750.0" y="492" font-size="14" font-weight="700" fill="#101828" text-anchor="start">Governed agent pipeline</text>
+<rect x="977.7" y="477" width="72.30000000000001" height="20" rx="10" fill="#6941c6"/>
+<text x="1013.85" y="491" font-size="10.5" font-weight="700" fill="#ffffff" text-anchor="middle">LANGGRAPH</text>
+<text x="750.0" y="514" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">LangGraph: planner → 6 analysis agents</text>
+<text x="750.0" y="532" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">→ decision → policy → governance</text>
+<text x="750.0" y="550" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">→ briefing → grounding guardrail</text>
+<text x="750.0" y="568" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start"></text>
+<text x="750.0" y="586" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">LLM: Claude when a key is set,</text>
+<text x="750.0" y="604" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">else deterministic — always labelled</text>
+<rect x="20" y="726" width="1060" height="262" rx="14" fill="#ecfdf3" stroke="#a6e9c5"/>
+<text x="36" y="746" font-size="11.5" font-weight="800" fill="#475467" text-anchor="start">DATA</text>
+<rect x="40.0" y="756" width="240.0" height="210" rx="10" fill="#ffffff" stroke="#d0d5dd" stroke-width="1.4"/>
+<text x="54.0" y="780" font-size="14" font-weight="700" fill="#101828" text-anchor="start">Public data</text>
+<rect x="231.2" y="765" width="38.8" height="20" rx="10" fill="#067647"/>
+<text x="250.60000000000002" y="779" font-size="10.5" font-weight="700" fill="#ffffff" text-anchor="middle">REAL</text>
+<text x="54.0" y="802" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">SEC EDGAR XBRL</text>
+<text x="54.0" y="820" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">(companyfacts + frames)</text>
+<text x="54.0" y="838" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">NY Fed SOFR · UST curve</text>
+<text x="54.0" y="856" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">FRED spreads · ECB FX</text>
+<text x="54.0" y="874" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">UCI retail invoices</text>
+<text x="54.0" y="892" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">dated, checksummed</text>
+<rect x="300.0" y="756" width="240.0" height="210" rx="10" fill="#ffffff" stroke="#d0d5dd" stroke-width="1.4"/>
+<text x="314.0" y="780" font-size="14" font-weight="700" fill="#101828" text-anchor="start">Governed ingestion</text>
+<rect x="457.7" y="765" width="72.30000000000001" height="20" rx="10" fill="#7a5af8"/>
+<text x="493.85" y="779" font-size="10.5" font-weight="700" fill="#ffffff" text-anchor="middle">SYNTHETIC</text>
+<text x="314.0" y="802" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">ERP CSV · camt.053 · BAI2</text>
+<text x="314.0" y="820" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">validation · reconciliation</text>
+<text x="314.0" y="838" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">dedupe · quarantine</text>
+<text x="314.0" y="856" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">hostile XML refused</text>
+<text x="314.0" y="874" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">lineage per loaded row</text>
+<rect x="560.0" y="756" width="240.0" height="210" rx="10" fill="#fcfcfd" stroke="#d0d5dd" stroke-width="1.4" stroke-dasharray="6 4"/>
+<text x="574.0" y="780" font-size="14" font-weight="700" fill="#101828" text-anchor="start">Client systems</text>
+<rect x="704.3" y="765" width="85.7" height="20" rx="10" fill="#98a2b3"/>
+<text x="747.15" y="779" font-size="10.5" font-weight="700" fill="#ffffff" text-anchor="middle">NOT CONFIG.</text>
+<text x="574.0" y="802" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">SAP · Oracle · NetSuite</text>
+<text x="574.0" y="820" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">bank H2H / SWIFT FileAct</text>
+<text x="574.0" y="838" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">enterprise SSO</text>
+<text x="574.0" y="856" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">interfaces defined,</text>
+<text x="574.0" y="874" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">never faked</text>
+<rect x="820.0" y="756" width="240.0" height="210" rx="10" fill="#ffffff" stroke="#d0d5dd" stroke-width="1.4"/>
+<text x="834.0" y="780" font-size="14" font-weight="700" fill="#101828" text-anchor="start">Persistence</text>
+<text x="834.0" y="802" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">SQLite (default, WAL,</text>
+<text x="834.0" y="820" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">migrations)</text>
+<text x="834.0" y="838" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">MongoDB (multi-replica)</text>
+<text x="834.0" y="856" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">users · runs · decisions</text>
+<text x="834.0" y="874" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">verified backup/restore</text>
+<rect x="1100" y="438" width="360" height="550" rx="14" fill="#fef6ee" stroke="#f9c599"/>
+<text x="1116" y="458" font-size="11.5" font-weight="800" fill="#475467" text-anchor="start">GOVERNANCE &amp; DECISIONS</text>
+<rect x="1120" y="468" width="320" height="168" rx="10" fill="#ffffff" stroke="#d0d5dd" stroke-width="1.4"/>
+<text x="1134" y="492" font-size="14" font-weight="700" fill="#101828" text-anchor="start">Policy &amp; approvals</text>
+<text x="1134" y="514" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">← recommendations from the agents</text>
+<text x="1134" y="532" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">approval matrix (policy-as-code, versioned)</text>
+<text x="1134" y="550" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">authority + segregation of duties</text>
+<text x="1134" y="568" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">superseded-run · policy-drift · replay</text>
+<text x="1134" y="586" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">  guards · compare-and-swap</text>
+<rect x="1120" y="664" width="320" height="132" rx="10" fill="#ffffff" stroke="#d0d5dd" stroke-width="1.4"/>
+<text x="1134" y="688" font-size="14" font-weight="700" fill="#101828" text-anchor="start">Execution boundary</text>
+<rect x="1344.3" y="673" width="85.7" height="20" rx="10" fill="#b42318"/>
+<text x="1387.15" y="687" font-size="10.5" font-weight="700" fill="#ffffff" text-anchor="middle">NO PAYMENTS</text>
+<text x="1134" y="710" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">pain.001 DRAFT only after approval</text>
+<text x="1134" y="728" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">dual control: approver ≠ releaser</text>
+<text x="1134" y="746" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">transmission channel: none</text>
+<rect x="1120" y="824" width="320" height="142" rx="10" fill="#ffffff" stroke="#d0d5dd" stroke-width="1.4"/>
+<text x="1134" y="848" font-size="14" font-weight="700" fill="#101828" text-anchor="start">Audit ledger</text>
+<text x="1134" y="870" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">SHA-256 hash chain, sequence-bound</text>
+<text x="1134" y="888" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">append-only (DB triggers / Mongo role)</text>
+<text x="1134" y="906" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">every decision and denial recorded</text>
+<text x="1134" y="924" font-size="12.2" font-weight="400" fill="#475467" text-anchor="start">external anchors · stored in persistence ←</text>
+<path d="M562.5,220 L1016.6666666666666,292" fill="none" stroke="#7a869a" stroke-width="1.7" marker-end="url(#ah)"/>
+<path d="M917.5,220 L1076.6666666666665,292" fill="none" stroke="#7a869a" stroke-width="1.7" marker-end="url(#ah)"/>
+<path d="M1165.0,220 L1380.0,292" fill="none" stroke="#7a869a" stroke-width="1.7" marker-end="url(#ah)"/>
+<path d="M1046.6666666666665,396 L1046.6666666666665,468" fill="none" stroke="#7a869a" stroke-width="1.7" marker-end="url(#ah)"/>
+<text x="1054.6666666666665" y="430" font-size="11" font-weight="600" fill="#475467" text-anchor="start">runs, questions</text>
+<path d="M736.0,600 L712.0,600" fill="none" stroke="#7a869a" stroke-width="1.7" marker-end="url(#ah)"/>
+<text x="724.0" y="592" font-size="11" font-weight="600" fill="#475467" text-anchor="end">tools</text>
+<path d="M388.0,600 L364.0,600" fill="none" stroke="#7a869a" stroke-width="1.7" marker-end="url(#ah)"/>
+<text x="376.0" y="592" font-size="11" font-weight="600" fill="#475467" text-anchor="end">read</text>
+<path d="M1060.0,540 L1120,540" fill="none" stroke="#7a869a" stroke-width="1.7" marker-end="url(#ah)"/>
+<path d="M1280.0,636 L1280.0,664" fill="none" stroke="#7a869a" stroke-width="1.7" marker-end="url(#ah)"/>
+<path d="M1280.0,796 L1280.0,824" fill="none" stroke="#7a869a" stroke-width="1.7" marker-end="url(#ah)"/>
+<path d="M160.0,756 L160.0,678" fill="none" stroke="#7a869a" stroke-width="1.7" marker-end="url(#ah)"/>
+<text x="168.0" y="720" font-size="11" font-weight="600" fill="#475467" text-anchor="start">snapshots</text>
+<path d="M340.0,756 L340.0,678" fill="none" stroke="#7a869a" stroke-width="1.7" stroke-dasharray="5 4" marker-end="url(#ah)"/>
+<text x="348.0" y="720" font-size="11" font-weight="600" fill="#475467" text-anchor="start">loads</text>
+<path d="M560.0,860 L540.0,860" fill="none" stroke="#7a869a" stroke-width="1.7" stroke-dasharray="5 4" marker-end="url(#ah)"/>
+<path d="M958.0,678 L958.0,756" fill="none" stroke="#7a869a" stroke-width="1.7" marker-end="url(#ah)"/>
+<text x="966.0" y="720" font-size="11" font-weight="600" fill="#475467" text-anchor="start">runs stored</text>
+<path d="M1120,900 L1060.0,900" fill="none" stroke="#7a869a" stroke-width="1.7" marker-end="url(#ah)"/>
+</svg>
