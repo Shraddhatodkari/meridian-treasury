@@ -1,0 +1,7 @@
+Bundled REPORTED metrics vs live SEC companyfacts — fetched 2026-10-13 05:37 UTC
+Caterpillar Inc.               14 match, 0 differ []
+Apple Inc.                     9 match, 0 differ []
+The Coca-Cola Company          11 match, 0 differ []
+Honeywell International Inc.   12 match, 0 differ []
+Deere & Company                8 match, 0 differ []
+TOTAL 54 match, 0 differ

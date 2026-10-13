@@ -1,0 +1,31 @@
+# AWS App Runner — source-code deployment with the managed Python runtime (no Dockerfile).
+# Pair with Claude on Amazon Bedrock (MERIDIAN_LLM_PROVIDER=bedrock) and MongoDB Atlas on AWS (PrivateLink).
+version: 1.0
+runtime: python311
+build:
+  commands:
+    build:
+      - pip install -e ".[bedrock,nlp]"
+run:
+  runtime-version: 3.11
+  command: uvicorn meridian.api.main:app --host 0.0.0.0 --port 8000
+  network:
+    port: 8000
+  env:
+    - name: MERIDIAN_MODE
+      value: production
+    - name: MERIDIAN_MARKET_DATA
+      value: live
+    - name: MERIDIAN_LLM_PROVIDER
+      value: bedrock
+    - name: MERIDIAN_EMBEDDER
+      value: transformer
+  secrets:
+    - name: MERIDIAN_MONGODB_URI
+      value-from: arn:aws:secretsmanager:us-east-1:ACCOUNT_ID:secret:meridian/mongodb-uri
+    - name: MERIDIAN_JWT_SECRET
+      value-from: arn:aws:secretsmanager:us-east-1:ACCOUNT_ID:secret:meridian/jwt-secret
+    - name: MERIDIAN_SEC_USER_AGENT
+      value-from: arn:aws:secretsmanager:us-east-1:ACCOUNT_ID:secret:meridian/sec-user-agent
+    - name: MERIDIAN_API_KEYS
+      value-from: arn:aws:secretsmanager:us-east-1:ACCOUNT_ID:secret:meridian/api-keys

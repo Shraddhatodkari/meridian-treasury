@@ -1,0 +1,26 @@
+# Real server restart, default configuration (SQLite), v3.5.0 clean install, 2026-10-12
+== START 1 (fresh)
+store: sqlite | version: 3.5.0
+run PUB-20261012-094000-a6e6  rec PUB-20261012-094000-a6e6:R01  action A001
+submit -> 200
+treasurer approve (must be denied) -> 403
+CFO approve -> 200
+add MSFT: ADDED MICROSOFT CORP
+audit before restart: {"valid":true,"records":35,"head":"2314cd081518ccd5dba92efa886959b068ec941f07d536dce3f62aa0e9697dce","head_seq":35}
+== STOPPED. database file:
+total 17560
+drwxr-xr-x  2 root root     4096 Oct 12 09:39 .
+drwxr-xr-x 12 root root     4096 Oct 12 09:39 ..
+-rw-r--r--  1 root root 10915840 Oct 12 09:39 meridian.db
+-rw-r--r--  1 root root    32768 Oct 12 09:39 meridian.db-shm
+-rw-r--r--  1 root root  7024632 Oct 12 09:40 meridian.db-wal
+== START 2 (restart)
+after restart: run found: True | action status: APPROVED
+MSFT still registered: True
+users: 6
+audit after restart: {"valid":true,"records":37,"head":"dd24ebc27e839375de6ba9d3a10ce5bba344c7cfa0f3647e785da0c59021b535","head_seq":37}
+audit actions include: ['action_approve', 'approval_denied', 'company_added', 'login', 'recommendation_submitted']
+== OFFLINE: db status / backup / restore
+{'schema_version': 1, 'counts': {'users': 6, 'runs': 1, 'recommendations': 0, 'audit_records': 37, 'public_companies': 1}, 'integrity': 'ok', 'audit_valid': True, 'audit_records': 37}
+backup: {'bytes': 11202560, 'integrity': 'ok', 'audit_valid': True, 'audit_records': 37}
+restore: {'integrity': 'ok', 'audit_valid': True, 'audit_records': 37} previous kept: True

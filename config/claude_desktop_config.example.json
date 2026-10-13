@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "meridian-treasury": {
+      "command": "/absolute/path/to/meridian/.venv/bin/python",
+      "args": ["-m", "meridian.mcp_server"]
+    }
+  }
+}

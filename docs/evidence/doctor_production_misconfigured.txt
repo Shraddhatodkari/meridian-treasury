@@ -1,0 +1,15 @@
+[PASS] Operating mode: PRODUCTION
+[FAIL] Persistence: MongoDB configured: no MongoDB URI  → Set MERIDIAN_MONGODB_URI to the Atlas connection string
+[FAIL] LLM provider is a real Claude endpoint: provider=mock  → Set MERIDIAN_LLM_PROVIDER to anthropic | vertex | bedrock
+[FAIL] LLM credentials: n/a  → Provide credentials via environment / secret manager (never in code)
+[WARN] Semantic embeddings: embedder=hashing  → Set MERIDIAN_EMBEDDER=transformer and install the [nlp] extra
+[FAIL] Session signing key: missing  → Generate a 32+ byte secret
+[PASS] No demo service keys: service keys reviewed
+[WARN] Live market data: market_data=snapshot  → Set MERIDIAN_MARKET_DATA=live
+[WARN] SEC EDGAR user agent: missing — peer benchmarks off  → Set MERIDIAN_SEC_USER_AGENT="Org Name contact@org.com"
+[PASS] Fixed as-of date not pinned: as_of=None
+[WARN] Release identifier: not set  → Set MERIDIAN_GIT_SHA at deploy time for reproducibility metadata
+[FAIL] Store initialisation: Production mode requires MERIDIAN_MONGODB_URI (MongoDB Atlas). In-memory state is not permitted in production.  → See detail
+
+NOT READY — 5 fail, 4 warn (production mode)
+exit code: 1

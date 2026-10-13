@@ -1,0 +1,17 @@
+Caterpillar (CIK 0000018230) — bundled REPORTED metrics vs live SEC companyfacts, fetched 2026-10-12 07:39 UTC
+MATCH  cash                   CashAndCashEquivalentsAtCarryingValue                          2026-06-30                 app=   6,713,000,000 sec=   6,713,000,000  0000018230-26-000046
+MATCH  receivables_trade      AccountsReceivableNetCurrent                                   2026-06-30                 app=  13,188,000,000 sec=  13,188,000,000  0000018230-26-000046
+MATCH  receivables_finance    NotesAndLoansReceivableNetCurrent                              2026-06-30                 app=  10,844,000,000 sec=  10,844,000,000  0000018230-26-000046
+MATCH  inventory              InventoryNet                                                   2026-06-30                 app=  20,627,000,000 sec=  20,627,000,000  0000018230-26-000046
+MATCH  payables               AccountsPayableCurrent                                         2026-06-30                 app=  10,313,000,000 sec=  10,313,000,000  0000018230-26-000046
+MATCH  rpo                    RevenueRemainingPerformanceObligation                          2026-06-30                 app=  44,100,000,000 sec=  44,100,000,000  0000018230-26-000046
+MATCH  derivative_notional    DerivativeNotionalAmount                                       2026-06-30                 app=  29,400,000,000 sec=  29,400,000,000  0000018230-26-000046
+MATCH  short_term_borrowings  ShortTermBorrowings                                            2025-12-31                 app=   5,514,000,000 sec=   5,514,000,000  0000018230-26-000008
+MATCH  ltd_noncurrent         LongTermDebtNoncurrent                                         2025-12-31                 app=  30,696,000,000 sec=  30,696,000,000  0000018230-26-000008
+MATCH  maturity_y1            LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths  2025-12-31                 app=   7,120,000,000 sec=   7,120,000,000  0000018230-26-000008
+MATCH  credit_capacity        LineOfCreditFacilityMaximumBorrowingCapacity                   2025-12-31                 app=  15,837,000,000 sec=  15,837,000,000  0000018230-26-000008
+MATCH  credit_available       LineOfCreditFacilityRemainingBorrowingCapacity                 2025-12-31                 app=   9,658,000,000 sec=   9,658,000,000  0000018230-26-000008
+MATCH  cash_fy                CashAndCashEquivalentsAtCarryingValue                          2025-12-31                 app=   9,980,000,000 sec=   9,980,000,000  0000018230-26-000046
+MATCH  interest_paid_fy       InterestPaidNet                                                2025-01-01 → 2025-12-31    app=   1,842,000,000 sec=   1,842,000,000  0000018230-26-000008
+
+14 match, 0 differ

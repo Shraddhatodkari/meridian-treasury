@@ -1,0 +1,11 @@
+GET /health -> 200
+GET /ready -> 200
+GET /v1/kpis -> 401
+GET / -> 200
+--- /ready
+{"status":"ready","mode":"demo","classification":"SYNTHETIC","tenant":"Orion Industrial Group (synthetic demo company)","llm_provider":"mock","llm_model":"offline reasoner","ai_status":{"label":"AI OFFLINE / DETERMINISTIC","provider":"none","model":"deterministic offline reasoner","configured":false},"store":"memory","embedder":"hashing","market_data":"snapshot","policy_version":"2026.10-t3","model_id":"ar-delay:2026-10-06:c24f2e36d4b19080","as_of":"2026-10-06","version":"3.1.0"}
+--- /v1/cases
+[{"case":"public","name":"Caterpillar Inc.","ticker":"CAT","classification":"PUBLIC_REAL","label":"PUBLIC · REAL","as_of":"2026-06-30","source":"SEC EDGAR XBRL + public market data","primary":true},{"case":"synthetic","name":"Orion Industrial Group (synthetic demo company)","classification":"SYNTHETIC","label":"SYNTHETIC · EVALUATION","as_of":"2026-10-06","source":"Meridian simulator — transaction-level capabilities only","primary":false}]
+--- content-type /console/js/core.js
+content-type: text/javascript; charset=utf-8
+x-content-type-options: nosniff

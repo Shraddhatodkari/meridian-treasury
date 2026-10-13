@@ -1,0 +1,74 @@
+# Bandit static security scan — src/meridian (v3.5.0, 2026-10-12)
+Run started:2026-10-12 09:25:58.989324+00:00
+
+Test results:
+>> Issue: [B105:hardcoded_password_string] Possible hardcoded password: 'bearer'
+   Severity: Low   Confidence: Medium
+   CWE: CWE-259 (https://cwe.mitre.org/data/definitions/259.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.4/plugins/b105_hardcoded_password_string.html
+   Location: src/meridian/api/main.py:231:35
+230	    AuditLedger(store).record(user["username"], "login", {"role": user["role"]})
+231	    return {"access_token": token, "token_type": "bearer", "expires_at": exp.isoformat(),
+232	            "user": {"username": user["username"], "display_name": user["display_name"], "role": user["role"],
+233	                     "permissions": sorted(k for k, v in PERMISSIONS.items() if user["role"] in v)}}
+234	
+
+--------------------------------------------------
+>> Issue: [B405:blacklist] Using Element to parse untrusted XML data is known to be vulnerable to XML attacks. Replace Element with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.
+   Severity: Low   Confidence: High
+   CWE: CWE-20 (https://cwe.mitre.org/data/definitions/20.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b405-import-xml-etree
+   Location: src/meridian/execution/payments.py:10:0
+9	from datetime import UTC, date, datetime
+10	from xml.etree.ElementTree import Element, SubElement, tostring
+11	
+
+--------------------------------------------------
+>> Issue: [B405:blacklist] Using Element to parse untrusted XML data is known to be vulnerable to XML attacks. Replace Element with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.
+   Severity: Low   Confidence: High
+   CWE: CWE-20 (https://cwe.mitre.org/data/definitions/20.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b405-import-xml-etree
+   Location: src/meridian/ingest/camt053.py:11:0
+10	from typing import Any, cast
+11	from xml.etree.ElementTree import Element, SubElement, tostring
+12	
+
+--------------------------------------------------
+>> Issue: [B405:blacklist] Using ElementTree to parse untrusted XML data is known to be vulnerable to XML attacks. Replace ElementTree with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.
+   Severity: Low   Confidence: High
+   CWE: CWE-20 (https://cwe.mitre.org/data/definitions/20.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b405-import-xml-etree
+   Location: src/meridian/market/connectors.py:19:0
+18	from typing import cast
+19	from xml.etree import ElementTree
+20	
+
+--------------------------------------------------
+>> Issue: [B105:hardcoded_password_string] Possible hardcoded password: 'Meridian-Demo-2026'
+   Severity: Low   Confidence: Medium
+   CWE: CWE-259 (https://cwe.mitre.org/data/definitions/259.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.4/plugins/b105_hardcoded_password_string.html
+   Location: src/meridian/security/auth.py:54:16
+53	# flagged `demo_account`, and authenticate() refuses them in any other mode — so this value can never open production.
+54	DEMO_PASSWORD = "Meridian-Demo-2026"  # noqa: S105
+55	DEMO_USERS = [("ana", "Ana Lopez", "analyst"), ("wendy", "Wendy Osei", "wc_manager"), ("tom", "Tom Becker", "treasurer"),
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 11253
+	Total lines skipped (#nosec): 0
+	Total potential issues skipped due to specifically being disabled (e.g., #nosec BXXX): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0
+		Low: 5
+		Medium: 0
+		High: 0
+	Total issues (by confidence):
+		Undefined: 0
+		Low: 0
+		Medium: 2
+		High: 3
+Files skipped (0):

@@ -1,0 +1,2 @@
+# Clean install, deterministic default suite
+366 passed, 11 skipped in 181.19s (0:03:01)

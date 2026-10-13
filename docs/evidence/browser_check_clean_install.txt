@@ -1,0 +1,7 @@
+# Headless Chromium against the v3.5.3 clean install (2026-10-12)
+login ok
+add MSFT via UI ok
+ok 789019
+ok 18230
+pages checked: 30 problems: 0
+API spot-check: briefing '3 recommendations need a decision'; PC-2.1 64%; interest cover 7.28x

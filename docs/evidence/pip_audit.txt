@@ -1,0 +1,5 @@
+# pip-audit -l in the clean install (2026-10-12, v3.5.0)
+No known vulnerabilities found
+Name              Skip Reason
+----------------- --------------------------------------------------------------------------------
+meridian-treasury Dependency not found on PyPI and could not be audited: meridian-treasury (3.5.0)

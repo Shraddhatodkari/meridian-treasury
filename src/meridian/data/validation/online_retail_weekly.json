@@ -1,0 +1,831 @@
+{
+"source": "UCI Machine Learning Repository \u2014 Online Retail II (D. Chen), CC BY 4.0",
+"source_url": "https://archive.ics.uci.edu/dataset/502/online+retail+ii",
+"raw_file": "online_retail_II.csv",
+"raw_sha256": "32569a66f3842a82b0d8c4d63b263c5d98a76bde5d1f65c6c01bf457e541d3a9",
+"raw_rows": 1067371,
+"period": [
+"2009-12-07",
+"2011-11-28"
+],
+"classification": "PUBLIC_REAL (anonymised retailer, real transactions)",
+"series": [
+{
+"week": "2009-12-07",
+"gross_invoiced_gbp": 241631.47,
+"cancellations_gbp": 9321.37,
+"invoices": 728.0,
+"customers": 498.0,
+"net_gbp": 232310.1
+},
+{
+"week": "2009-12-14",
+"gross_invoiced_gbp": 261738.39,
+"cancellations_gbp": 5498.19,
+"invoices": 637.0,
+"customers": 398.0,
+"net_gbp": 256240.2
+},
+{
+"week": "2009-12-21",
+"gross_invoiced_gbp": 55262.37,
+"cancellations_gbp": 2461.88,
+"invoices": 287.0,
+"customers": 75.0,
+"net_gbp": 52800.49
+},
+{
+"week": "2010-01-04",
+"gross_invoiced_gbp": 168520.11,
+"cancellations_gbp": 2126.52,
+"invoices": 303.0,
+"customers": 194.0,
+"net_gbp": 166393.59
+},
+{
+"week": "2010-01-11",
+"gross_invoiced_gbp": 163999.72,
+"cancellations_gbp": 7008.81,
+"invoices": 384.0,
+"customers": 229.0,
+"net_gbp": 156990.91
+},
+{
+"week": "2010-01-18",
+"gross_invoiced_gbp": 154221.3,
+"cancellations_gbp": 5443.76,
+"invoices": 398.0,
+"customers": 256.0,
+"net_gbp": 148777.54
+},
+{
+"week": "2010-01-25",
+"gross_invoiced_gbp": 165967.37,
+"cancellations_gbp": 14096.52,
+"invoices": 548.0,
+"customers": 331.0,
+"net_gbp": 151870.85
+},
+{
+"week": "2010-02-01",
+"gross_invoiced_gbp": 124664.07,
+"cancellations_gbp": 2802.73,
+"invoices": 617.0,
+"customers": 250.0,
+"net_gbp": 121861.34
+},
+{
+"week": "2010-02-08",
+"gross_invoiced_gbp": 91110.61,
+"cancellations_gbp": 2373.63,
+"invoices": 398.0,
+"customers": 237.0,
+"net_gbp": 88736.98
+},
+{
+"week": "2010-02-15",
+"gross_invoiced_gbp": 175148.65,
+"cancellations_gbp": 9728.22,
+"invoices": 443.0,
+"customers": 270.0,
+"net_gbp": 165420.43
+},
+{
+"week": "2010-02-22",
+"gross_invoiced_gbp": 162416.4,
+"cancellations_gbp": 5343.73,
+"invoices": 511.0,
+"customers": 266.0,
+"net_gbp": 157072.67
+},
+{
+"week": "2010-03-01",
+"gross_invoiced_gbp": 166425.13,
+"cancellations_gbp": 2360.84,
+"invoices": 573.0,
+"customers": 335.0,
+"net_gbp": 164064.29
+},
+{
+"week": "2010-03-08",
+"gross_invoiced_gbp": 142176.34,
+"cancellations_gbp": 3850.61,
+"invoices": 453.0,
+"customers": 268.0,
+"net_gbp": 138325.73
+},
+{
+"week": "2010-03-15",
+"gross_invoiced_gbp": 190300.32,
+"cancellations_gbp": 24357.4,
+"invoices": 485.0,
+"customers": 324.0,
+"net_gbp": 165942.92
+},
+{
+"week": "2010-03-22",
+"gross_invoiced_gbp": 206384.23,
+"cancellations_gbp": 35040.94,
+"invoices": 563.0,
+"customers": 373.0,
+"net_gbp": 171343.29
+},
+{
+"week": "2010-03-29",
+"gross_invoiced_gbp": 159107.26,
+"cancellations_gbp": 2687.19,
+"invoices": 406.0,
+"customers": 253.0,
+"net_gbp": 156420.07
+},
+{
+"week": "2010-04-05",
+"gross_invoiced_gbp": 138649.69,
+"cancellations_gbp": 1289.46,
+"invoices": 336.0,
+"customers": 238.0,
+"net_gbp": 137360.23
+},
+{
+"week": "2010-04-12",
+"gross_invoiced_gbp": 153734.5,
+"cancellations_gbp": 15411.7,
+"invoices": 436.0,
+"customers": 315.0,
+"net_gbp": 138322.8
+},
+{
+"week": "2010-04-19",
+"gross_invoiced_gbp": 180978.49,
+"cancellations_gbp": 16549.89,
+"invoices": 502.0,
+"customers": 334.0,
+"net_gbp": 164428.6
+},
+{
+"week": "2010-04-26",
+"gross_invoiced_gbp": 189710.99,
+"cancellations_gbp": 3861.49,
+"invoices": 548.0,
+"customers": 358.0,
+"net_gbp": 185849.5
+},
+{
+"week": "2010-05-03",
+"gross_invoiced_gbp": 164442.24,
+"cancellations_gbp": 5813.11,
+"invoices": 498.0,
+"customers": 322.0,
+"net_gbp": 158629.13
+},
+{
+"week": "2010-05-10",
+"gross_invoiced_gbp": 171619.31,
+"cancellations_gbp": 22727.89,
+"invoices": 686.0,
+"customers": 360.0,
+"net_gbp": 148891.42
+},
+{
+"week": "2010-05-17",
+"gross_invoiced_gbp": 150996.95,
+"cancellations_gbp": 6375.45,
+"invoices": 583.0,
+"customers": 323.0,
+"net_gbp": 144621.5
+},
+{
+"week": "2010-05-24",
+"gross_invoiced_gbp": 160432.53,
+"cancellations_gbp": 9285.63,
+"invoices": 608.0,
+"customers": 352.0,
+"net_gbp": 151146.9
+},
+{
+"week": "2010-05-31",
+"gross_invoiced_gbp": 108579.82,
+"cancellations_gbp": 3036.54,
+"invoices": 440.0,
+"customers": 240.0,
+"net_gbp": 105543.28
+},
+{
+"week": "2010-06-07",
+"gross_invoiced_gbp": 220415.75,
+"cancellations_gbp": 15523.42,
+"invoices": 619.0,
+"customers": 404.0,
+"net_gbp": 204892.33
+},
+{
+"week": "2010-06-14",
+"gross_invoiced_gbp": 172392.97,
+"cancellations_gbp": 38366.09,
+"invoices": 442.0,
+"customers": 303.0,
+"net_gbp": 134026.88
+},
+{
+"week": "2010-06-21",
+"gross_invoiced_gbp": 127041.53,
+"cancellations_gbp": 3016.62,
+"invoices": 400.0,
+"customers": 271.0,
+"net_gbp": 124024.91
+},
+{
+"week": "2010-06-28",
+"gross_invoiced_gbp": 181541.81,
+"cancellations_gbp": 13161.7,
+"invoices": 494.0,
+"customers": 359.0,
+"net_gbp": 168380.11
+},
+{
+"week": "2010-07-05",
+"gross_invoiced_gbp": 154082.18,
+"cancellations_gbp": 8071.75,
+"invoices": 471.0,
+"customers": 299.0,
+"net_gbp": 146010.43
+},
+{
+"week": "2010-07-12",
+"gross_invoiced_gbp": 159283.44,
+"cancellations_gbp": 10552.96,
+"invoices": 515.0,
+"customers": 316.0,
+"net_gbp": 148730.48
+},
+{
+"week": "2010-07-19",
+"gross_invoiced_gbp": 148014.78,
+"cancellations_gbp": 3062.02,
+"invoices": 436.0,
+"customers": 316.0,
+"net_gbp": 144952.76
+},
+{
+"week": "2010-07-26",
+"gross_invoiced_gbp": 162355.09,
+"cancellations_gbp": 9437.01,
+"invoices": 455.0,
+"customers": 318.0,
+"net_gbp": 152918.08
+},
+{
+"week": "2010-08-02",
+"gross_invoiced_gbp": 131419.35,
+"cancellations_gbp": 4285.08,
+"invoices": 401.0,
+"customers": 281.0,
+"net_gbp": 127134.27
+},
+{
+"week": "2010-08-09",
+"gross_invoiced_gbp": 180134.32,
+"cancellations_gbp": 7551.8,
+"invoices": 517.0,
+"customers": 285.0,
+"net_gbp": 172582.52
+},
+{
+"week": "2010-08-16",
+"gross_invoiced_gbp": 169884.73,
+"cancellations_gbp": 1569.01,
+"invoices": 417.0,
+"customers": 295.0,
+"net_gbp": 168315.72
+},
+{
+"week": "2010-08-23",
+"gross_invoiced_gbp": 149147.75,
+"cancellations_gbp": 24431.66,
+"invoices": 428.0,
+"customers": 300.0,
+"net_gbp": 124716.09
+},
+{
+"week": "2010-08-30",
+"gross_invoiced_gbp": 145481.68,
+"cancellations_gbp": 5444.32,
+"invoices": 375.0,
+"customers": 275.0,
+"net_gbp": 140037.36
+},
+{
+"week": "2010-09-06",
+"gross_invoiced_gbp": 133120.36,
+"cancellations_gbp": 3468.84,
+"invoices": 393.0,
+"customers": 283.0,
+"net_gbp": 129651.52
+},
+{
+"week": "2010-09-13",
+"gross_invoiced_gbp": 179573.59,
+"cancellations_gbp": 15753.01,
+"invoices": 532.0,
+"customers": 346.0,
+"net_gbp": 163820.58
+},
+{
+"week": "2010-09-20",
+"gross_invoiced_gbp": 246229.42,
+"cancellations_gbp": 7843.89,
+"invoices": 611.0,
+"customers": 365.0,
+"net_gbp": 238385.53
+},
+{
+"week": "2010-09-27",
+"gross_invoiced_gbp": 333403.36,
+"cancellations_gbp": 41751.23,
+"invoices": 718.0,
+"customers": 465.0,
+"net_gbp": 291652.13
+},
+{
+"week": "2010-10-04",
+"gross_invoiced_gbp": 293194.54,
+"cancellations_gbp": 35807.57,
+"invoices": 710.0,
+"customers": 479.0,
+"net_gbp": 257386.97
+},
+{
+"week": "2010-10-11",
+"gross_invoiced_gbp": 327279.47,
+"cancellations_gbp": 18198.54,
+"invoices": 714.0,
+"customers": 492.0,
+"net_gbp": 309080.93
+},
+{
+"week": "2010-10-18",
+"gross_invoiced_gbp": 246809.32,
+"cancellations_gbp": 12033.43,
+"invoices": 750.0,
+"customers": 494.0,
+"net_gbp": 234775.89
+},
+{
+"week": "2010-10-25",
+"gross_invoiced_gbp": 220689.65,
+"cancellations_gbp": 14132.67,
+"invoices": 612.0,
+"customers": 429.0,
+"net_gbp": 206556.98
+},
+{
+"week": "2010-11-01",
+"gross_invoiced_gbp": 288871.07,
+"cancellations_gbp": 9488.2,
+"invoices": 891.0,
+"customers": 476.0,
+"net_gbp": 279382.87
+},
+{
+"week": "2010-11-08",
+"gross_invoiced_gbp": 382123.58,
+"cancellations_gbp": 19405.97,
+"invoices": 834.0,
+"customers": 550.0,
+"net_gbp": 362717.61
+},
+{
+"week": "2010-11-15",
+"gross_invoiced_gbp": 355559.84,
+"cancellations_gbp": 3628.75,
+"invoices": 795.0,
+"customers": 562.0,
+"net_gbp": 351931.09
+},
+{
+"week": "2010-11-22",
+"gross_invoiced_gbp": 304424.85,
+"cancellations_gbp": 10396.83,
+"invoices": 854.0,
+"customers": 591.0,
+"net_gbp": 294028.02
+},
+{
+"week": "2010-11-29",
+"gross_invoiced_gbp": 510148.8,
+"cancellations_gbp": 11859.25,
+"invoices": 808.0,
+"customers": 516.0,
+"net_gbp": 498289.55
+},
+{
+"week": "2010-12-06",
+"gross_invoiced_gbp": 583361.63,
+"cancellations_gbp": 117433.4,
+"invoices": 717.0,
+"customers": 448.0,
+"net_gbp": 465928.23
+},
+{
+"week": "2010-12-13",
+"gross_invoiced_gbp": 216012.2,
+"cancellations_gbp": 8960.03,
+"invoices": 573.0,
+"customers": 386.0,
+"net_gbp": 207052.17
+},
+{
+"week": "2010-12-20",
+"gross_invoiced_gbp": 92369.3,
+"cancellations_gbp": 2598.73,
+"invoices": 222.0,
+"customers": 121.0,
+"net_gbp": 89770.57
+},
+{
+"week": "2011-01-03",
+"gross_invoiced_gbp": 133658.19,
+"cancellations_gbp": 39937.26,
+"invoices": 320.0,
+"customers": 236.0,
+"net_gbp": 93720.93
+},
+{
+"week": "2011-01-10",
+"gross_invoiced_gbp": 193362.04,
+"cancellations_gbp": 2367.08,
+"invoices": 343.0,
+"customers": 235.0,
+"net_gbp": 190994.96
+},
+{
+"week": "2011-01-17",
+"gross_invoiced_gbp": 215533.18,
+"cancellations_gbp": 81750.27,
+"invoices": 297.0,
+"customers": 214.0,
+"net_gbp": 133782.91
+},
+{
+"week": "2011-01-24",
+"gross_invoiced_gbp": 125170.79,
+"cancellations_gbp": 6033.98,
+"invoices": 431.0,
+"customers": 274.0,
+"net_gbp": 119136.81
+},
+{
+"week": "2011-01-31",
+"gross_invoiced_gbp": 125990.68,
+"cancellations_gbp": 2348.5,
+"invoices": 384.0,
+"customers": 270.0,
+"net_gbp": 123642.18
+},
+{
+"week": "2011-02-07",
+"gross_invoiced_gbp": 107080.7,
+"cancellations_gbp": 4783.77,
+"invoices": 327.0,
+"customers": 237.0,
+"net_gbp": 102296.93
+},
+{
+"week": "2011-02-14",
+"gross_invoiced_gbp": 143734.46,
+"cancellations_gbp": 4069.88,
+"invoices": 363.0,
+"customers": 251.0,
+"net_gbp": 139664.58
+},
+{
+"week": "2011-02-21",
+"gross_invoiced_gbp": 148710.78,
+"cancellations_gbp": 15640.85,
+"invoices": 343.0,
+"customers": 263.0,
+"net_gbp": 133069.93
+},
+{
+"week": "2011-02-28",
+"gross_invoiced_gbp": 132717.55,
+"cancellations_gbp": 2281.99,
+"invoices": 371.0,
+"customers": 269.0,
+"net_gbp": 130435.56
+},
+{
+"week": "2011-03-07",
+"gross_invoiced_gbp": 135220.53,
+"cancellations_gbp": 6039.57,
+"invoices": 420.0,
+"customers": 280.0,
+"net_gbp": 129180.96
+},
+{
+"week": "2011-03-14",
+"gross_invoiced_gbp": 161691.62,
+"cancellations_gbp": 16429.01,
+"invoices": 413.0,
+"customers": 291.0,
+"net_gbp": 145262.61
+},
+{
+"week": "2011-03-21",
+"gross_invoiced_gbp": 149655.47,
+"cancellations_gbp": 1745.67,
+"invoices": 448.0,
+"customers": 298.0,
+"net_gbp": 147909.8
+},
+{
+"week": "2011-03-28",
+"gross_invoiced_gbp": 192720.48,
+"cancellations_gbp": 9218.77,
+"invoices": 521.0,
+"customers": 307.0,
+"net_gbp": 183501.71
+},
+{
+"week": "2011-04-04",
+"gross_invoiced_gbp": 134483.88,
+"cancellations_gbp": 12885.66,
+"invoices": 520.0,
+"customers": 295.0,
+"net_gbp": 121598.22
+},
+{
+"week": "2011-04-11",
+"gross_invoiced_gbp": 149571.68,
+"cancellations_gbp": 2111.91,
+"invoices": 444.0,
+"customers": 332.0,
+"net_gbp": 147459.77
+},
+{
+"week": "2011-04-18",
+"gross_invoiced_gbp": 141650.98,
+"cancellations_gbp": 26189.73,
+"invoices": 372.0,
+"customers": 251.0,
+"net_gbp": 115461.25
+},
+{
+"week": "2011-04-25",
+"gross_invoiced_gbp": 86465.08,
+"cancellations_gbp": 2082.42,
+"invoices": 300.0,
+"customers": 195.0,
+"net_gbp": 84382.66
+},
+{
+"week": "2011-05-02",
+"gross_invoiced_gbp": 146941.6,
+"cancellations_gbp": 16587.29,
+"invoices": 493.0,
+"customers": 324.0,
+"net_gbp": 130354.31
+},
+{
+"week": "2011-05-09",
+"gross_invoiced_gbp": 211984.26,
+"cancellations_gbp": 6539.03,
+"invoices": 511.0,
+"customers": 336.0,
+"net_gbp": 205445.23
+},
+{
+"week": "2011-05-16",
+"gross_invoiced_gbp": 215835.32,
+"cancellations_gbp": 17803.79,
+"invoices": 573.0,
+"customers": 386.0,
+"net_gbp": 198031.53
+},
+{
+"week": "2011-05-23",
+"gross_invoiced_gbp": 166087.12,
+"cancellations_gbp": 5517.3,
+"invoices": 502.0,
+"customers": 317.0,
+"net_gbp": 160569.82
+},
+{
+"week": "2011-05-30",
+"gross_invoiced_gbp": 118688.68,
+"cancellations_gbp": 1756.16,
+"invoices": 336.0,
+"customers": 251.0,
+"net_gbp": 116932.52
+},
+{
+"week": "2011-06-06",
+"gross_invoiced_gbp": 220151.72,
+"cancellations_gbp": 42234.85,
+"invoices": 526.0,
+"customers": 368.0,
+"net_gbp": 177916.87
+},
+{
+"week": "2011-06-13",
+"gross_invoiced_gbp": 190132.24,
+"cancellations_gbp": 6115.74,
+"invoices": 476.0,
+"customers": 319.0,
+"net_gbp": 184016.5
+},
+{
+"week": "2011-06-20",
+"gross_invoiced_gbp": 135972.61,
+"cancellations_gbp": 18885.9,
+"invoices": 444.0,
+"customers": 305.0,
+"net_gbp": 117086.71
+},
+{
+"week": "2011-06-27",
+"gross_invoiced_gbp": 139216.16,
+"cancellations_gbp": 2928.72,
+"invoices": 389.0,
+"customers": 231.0,
+"net_gbp": 136287.44
+},
+{
+"week": "2011-07-04",
+"gross_invoiced_gbp": 177320.48,
+"cancellations_gbp": 2661.31,
+"invoices": 444.0,
+"customers": 299.0,
+"net_gbp": 174659.17
+},
+{
+"week": "2011-07-11",
+"gross_invoiced_gbp": 137142.63,
+"cancellations_gbp": 12979.46,
+"invoices": 406.0,
+"customers": 286.0,
+"net_gbp": 124163.17
+},
+{
+"week": "2011-07-18",
+"gross_invoiced_gbp": 202365.54,
+"cancellations_gbp": 19851.58,
+"invoices": 497.0,
+"customers": 324.0,
+"net_gbp": 182513.96
+},
+{
+"week": "2011-07-25",
+"gross_invoiced_gbp": 182685.09,
+"cancellations_gbp": 1870.24,
+"invoices": 483.0,
+"customers": 309.0,
+"net_gbp": 180814.85
+},
+{
+"week": "2011-08-01",
+"gross_invoiced_gbp": 170702.36,
+"cancellations_gbp": 17526.16,
+"invoices": 394.0,
+"customers": 303.0,
+"net_gbp": 153176.2
+},
+{
+"week": "2011-08-08",
+"gross_invoiced_gbp": 190233.14,
+"cancellations_gbp": 6692.0,
+"invoices": 362.0,
+"customers": 272.0,
+"net_gbp": 183541.14
+},
+{
+"week": "2011-08-15",
+"gross_invoiced_gbp": 176016.97,
+"cancellations_gbp": 5292.08,
+"invoices": 384.0,
+"customers": 300.0,
+"net_gbp": 170724.89
+},
+{
+"week": "2011-08-22",
+"gross_invoiced_gbp": 164939.43,
+"cancellations_gbp": 15335.93,
+"invoices": 430.0,
+"customers": 329.0,
+"net_gbp": 149603.5
+},
+{
+"week": "2011-08-29",
+"gross_invoiced_gbp": 154058.24,
+"cancellations_gbp": 10239.18,
+"invoices": 408.0,
+"customers": 264.0,
+"net_gbp": 143819.06
+},
+{
+"week": "2011-09-05",
+"gross_invoiced_gbp": 192703.67,
+"cancellations_gbp": 2190.2,
+"invoices": 464.0,
+"customers": 334.0,
+"net_gbp": 190513.47
+},
+{
+"week": "2011-09-12",
+"gross_invoiced_gbp": 230137.26,
+"cancellations_gbp": 18414.64,
+"invoices": 498.0,
+"customers": 349.0,
+"net_gbp": 211722.62
+},
+{
+"week": "2011-09-19",
+"gross_invoiced_gbp": 338771.79,
+"cancellations_gbp": 12615.07,
+"invoices": 608.0,
+"customers": 438.0,
+"net_gbp": 326156.72
+},
+{
+"week": "2011-09-26",
+"gross_invoiced_gbp": 211800.22,
+"cancellations_gbp": 4941.99,
+"invoices": 552.0,
+"customers": 417.0,
+"net_gbp": 206858.23
+},
+{
+"week": "2011-10-03",
+"gross_invoiced_gbp": 319987.39,
+"cancellations_gbp": 17520.8,
+"invoices": 666.0,
+"customers": 450.0,
+"net_gbp": 302466.59
+},
+{
+"week": "2011-10-10",
+"gross_invoiced_gbp": 228776.18,
+"cancellations_gbp": 23041.54,
+"invoices": 587.0,
+"customers": 395.0,
+"net_gbp": 205734.64
+},
+{
+"week": "2011-10-17",
+"gross_invoiced_gbp": 276656.42,
+"cancellations_gbp": 12894.2,
+"invoices": 544.0,
+"customers": 406.0,
+"net_gbp": 263762.22
+},
+{
+"week": "2011-10-24",
+"gross_invoiced_gbp": 260555.63,
+"cancellations_gbp": 21913.44,
+"invoices": 695.0,
+"customers": 467.0,
+"net_gbp": 238642.19
+},
+{
+"week": "2011-10-31",
+"gross_invoiced_gbp": 301897.83,
+"cancellations_gbp": 13631.06,
+"invoices": 701.0,
+"customers": 489.0,
+"net_gbp": 288266.77
+},
+{
+"week": "2011-11-07",
+"gross_invoiced_gbp": 370044.97,
+"cancellations_gbp": 23484.83,
+"invoices": 781.0,
+"customers": 565.0,
+"net_gbp": 346560.14
+},
+{
+"week": "2011-11-14",
+"gross_invoiced_gbp": 388622.44,
+"cancellations_gbp": 8214.87,
+"invoices": 894.0,
+"customers": 614.0,
+"net_gbp": 380407.57
+},
+{
+"week": "2011-11-21",
+"gross_invoiced_gbp": 316412.16,
+"cancellations_gbp": 8227.14,
+"invoices": 754.0,
+"customers": 518.0,
+"net_gbp": 308185.02
+},
+{
+"week": "2011-11-28",
+"gross_invoiced_gbp": 324370.83,
+"cancellations_gbp": 4495.84,
+"invoices": 824.0,
+"customers": 582.0,
+"net_gbp": 319874.99
+}
+],
+"checksum_sha256": "aa700c39ceb288f85eb78e107f37046f0c59cd5a4ef4e1294ea896568aa1ac73"
+}

@@ -1,0 +1,15 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.16, pytest-9.1.1, pluggy-1.6.0 -- /home/claude/venv/bin/python
+rootdir: /home/claude/meridian_enterprise
+configfile: pyproject.toml
+plugins: langsmith-0.14.4, asyncio-1.4.0, reverse-1.9.0, anyio-4.15.1
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 5 items
+
+tests/network/test_live_sources.py::test_sec_ticker_resolution_and_companyfacts_match_bundled_snapshot PASSED [ 20%]
+tests/network/test_live_sources.py::test_nyfed_sofr_and_effr PASSED      [ 40%]
+tests/network/test_live_sources.py::test_us_treasury_curve PASSED        [ 60%]
+tests/network/test_live_sources.py::test_fred_credit_spread_csv PASSED   [ 80%]
+tests/network/test_live_sources.py::test_ecb_fx PASSED                   [100%]
+
+============================== 5 passed in 5.23s ===============================

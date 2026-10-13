@@ -1,0 +1,45 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: { python: ["3.11", "3.12", "3.13"] }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "${{ matrix.python }}", cache: pip }
+      - run: pip install -e ".[dev]"
+      - run: ruff check src tests scripts
+      - run: pytest -q
+      - name: Release gates (in-sample + out-of-sample populations)
+        run: |
+          python -m meridian.evaluation.benchmark --seed 7
+          python -m meridian.evaluation.benchmark --seed 11
+      - uses: actions/upload-artifact@v4
+        with:
+          name: eval-reports-${{ matrix.python }}
+          path: reports/
+  transformer-rag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - run: pip install torch --index-url https://download.pytorch.org/whl/cpu && pip install -e ".[dev,nlp]"
+      - run: MERIDIAN_EMBEDDER=transformer pytest -q tests/unit/test_rag_and_store.py
+  mongodb-production-path:
+    # Real MongoDB server binary (no containers): persistence, GridFS model registry, concurrent audit chain.
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - run: pip install -e ".[dev]"
+      - name: Start mongod
+        run: |
+          curl -sSL https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu2404-8.0.15.tgz | tar xz
+          mkdir -p db && ./mongodb-linux-x86_64-ubuntu2404-8.0.15/bin/mongod --dbpath db --port 27017 --fork --logpath mongod.log
+      - run: MERIDIAN_TEST_MONGODB_URI=mongodb://127.0.0.1:27017 pytest -q tests/integration/test_mongodb_production_path.py
+      - name: Production readiness refuses a misconfigured environment
+        run: "! MERIDIAN_MODE=production meridian doctor"

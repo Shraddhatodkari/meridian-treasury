@@ -1,0 +1,16 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.16, pytest-9.1.1, pluggy-1.6.0 -- /home/claude/venv/bin/python
+rootdir: /home/claude/meridian_enterprise
+configfile: pyproject.toml
+plugins: langsmith-0.14.4, asyncio-1.4.0, reverse-1.9.0, platformdirs-4.13.0, anyio-4.15.1
+asyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 6 items
+
+tests/integration/test_mongodb_production_path.py::test_ingested_ledgers_round_trip PASSED [ 16%]
+tests/integration/test_mongodb_production_path.py::test_model_registry_persists_artifact_in_gridfs PASSED [ 33%]
+tests/integration/test_mongodb_production_path.py::test_audit_chain_is_safe_with_concurrent_replicas PASSED [ 50%]
+tests/integration/test_mongodb_production_path.py::test_users_and_runs_persist PASSED [ 66%]
+tests/integration/test_mongodb_production_path.py::test_runs_decisions_and_audit_survive_an_application_restart PASSED [ 83%]
+tests/integration/test_mongodb_production_path.py::test_app_role_can_append_but_never_alter_audit PASSED [100%]
+
+============================== 6 passed in 25.32s ==============================
